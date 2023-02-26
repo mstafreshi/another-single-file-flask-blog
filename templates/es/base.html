@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title> {% block title %} mstafreshi.ir - {{ title }} {% endblock %} </title>
+            
+        {% block styles %} 
+            {{ bootstrap.load_css() }}
+        {% endblock %}
+            
+    </head>
+    
+    
+    
+    <body>
+        <div class="container">
+        
+            <h3> {{ title }} </h3>
+            
+            {% for msg in get_flashed_messages() %}
+                {% if loop.index > 1 %}
+                    <br>
+                {% endif %}
+                {{ msg }}                
+            {% endfor %}
+            <hr>
+            
+            {% block content %} {% endblock %}
+            
+            {% block footer %}
+                <hr>                             
+                    <a href="{{ url_for('index') }}">Home</a> |
+                    <a href="{{ url_for('posts_list') }}">Posts list</a> |
+                    <a href="{{ url_for('post') }}">Add post</a> |
+                    <a href="{{ url_for('login') }}">Login</a> |
+                    <a href="{{ url_for('register') }}">Register</a>
+                <br>
+                
+                 All right reserved for mstareshi.ir <br>
+                 
+            {% endblock %}
+            
+            {% block scripts %}
+                {{ bootstrap.load_js() }}       
+            {% endblock %}
+        </div>
+    </body>
+</html>

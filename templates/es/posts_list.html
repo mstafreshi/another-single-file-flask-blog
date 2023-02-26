@@ -1,0 +1,30 @@
+{% extends "es/base.html" %}
+
+{% block content %}
+    {% if not posts | length %}
+        <h3> No hay records </h>
+    {% else %}
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th></th>
+                    <th></th>
+                </tr>                                     
+            </thead>
+            
+            <tbody>
+                {% for post in posts %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ post.title }}</td>
+                    <td>Delete</td>
+                    <td><a href="{{ url_for('post', id=post.id) }}">Edit</a></td>
+                </tr>
+                {% endfor %}                 
+            </tbody>
+        </table>
+    {% endif %}
+    
+{% endblock %}
