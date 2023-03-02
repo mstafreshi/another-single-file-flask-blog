@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    {{ super() }}
+    <link href="{{ url_for('static', filename='css/main.css') }}" type="text/css" rel="stylesheet" /></head>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+{% endblock %}

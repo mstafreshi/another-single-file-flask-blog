@@ -1,0 +1,39 @@
+{% extends "website.html" %}
+
+{% block content %}
+    <div id="md" dir="auto">{{ post.body | safe }}</div>
+    
+    {% from 'bootstrap5/form.html' import render_form %}
+    
+    {{ render_form(comment_form) }}
+    
+    {% for comment in post.comments %}
+        {% if comment.active %}
+            <div dir="auto">
+                <p> {{ comment.comment }} <p>
+                <p> {{ comment.name }} at {{ comment.date_created }} </p>
+            
+                {% if not loop.last %} <hr> {%endif %}
+            </div>
+        {% endif %}
+    {% endfor %}
+    
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+    text = marked.parse(document.getElementById('md').innerHTML);
+    //alert(text)
+    document.getElementById('md').innerHTML = text;
+    </script>
+    
+    <!-- highlight code fields    -->
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/languages/go.min.js"></script>
+
+    <script>hljs.highlightAll();</script>
+{% endblock %}

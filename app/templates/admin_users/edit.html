@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h3> {{ title }} </h3>
+    
+    {% from 'bootstrap5/form.html' import render_form %}
+    
+    <div class="alert alert-danger">You are editting username: {{ user.username }} (name: {{ user.name }})</div>
+    
+    {{ render_form(form) }}
+    
+    <div>
+        <a href="{{ url_for('admin_users.edit', id=user.id, what="general") }}">Edit</a></br>
+        <a href="{{ url_for('admin_users.edit', id=user.id, what="status") }}">Edit status</a></br>  
+        <a href="{{ url_for('admin_users.edit', id=user.id, what="email") }}">Edit email</a></br>  
+        <a href="{{ url_for('admin_users.edit', id=user.id, what="password") }}">Edit password</a></br> 
+    </div>
+{% endblock %}

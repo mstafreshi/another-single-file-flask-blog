@@ -1,0 +1,8 @@
+{% macro print_status(status) %}
+    {% if status | int > 0 %} Active {% else %} Inactive {% endif %}        
+{% endmacro %}
+
+
+{% macro print_show_in_list(is_in_list) %}
+    {% if is_in_list | int > 0 %} In list {% else %} Not in list {% endif %}        
+{% endmacro %}

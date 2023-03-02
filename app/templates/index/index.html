@@ -1,0 +1,14 @@
+{% extends "website.html" %}
+
+{% block content %}
+    {% for post in posts %}
+        <div>
+            <p dir="auto"><a href="{{ url_for('index.post', id=post.id) }}">{{ post.title }}</a></p>
+            <p dir="auto">
+                {{ post.resume }} 
+            </p>
+            <hr>        
+        </div>
+    {% endfor %}
+    
+{% endblock %}

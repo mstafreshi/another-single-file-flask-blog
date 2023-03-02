@@ -1,0 +1,29 @@
+body {
+    font-family: vazirmatn
+}
+
+a {
+    text-decoration:none
+}
+
+pre {
+    text-align:left;
+    direction:ltr;
+    border-style:dashed;
+    border-color:#2f6fab;
+    border-width:1px;
+    padding: 10px;
+    background-color:#f9f9f9;
+    font-family: monospace,Courier;
+    font-size: 0.9em;
+}
+
+/* textarea with id of info */
+#info{
+    height: 100px
+}
+
+/* textarea with id of body */
+#body {
+    height: 300px
+}
