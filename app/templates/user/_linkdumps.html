@@ -1,0 +1,14 @@
+<div class="row">
+
+{% for category in LinkdumpCategory.query.filter_by(lang_code=g.lang_code).all() %}      
+    {% if category.links.count() %}        
+        <div class="col-4">
+            {{ category.name }} <br>
+            {% for link in category.links.all() %}
+                <a href="{{ link. link }}">{{ link.text }}</a> <br>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endfor %}
+
+</div>

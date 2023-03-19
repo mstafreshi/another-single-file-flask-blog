@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="text-center">#</th>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Date Created</th>
+                <th></th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td class="text-center">{{ loop.index }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td> {% if user.active  %} Active {% else %} <span class="text-danger">Inactive</span> {% endif %} </td>
+                    <td>{{ user.date_created.strftime('%Y-%m-%d') }}</td> 
+                    <td class="text-end">
+                        <a class="btn btn-primary btn-sm" href="{{ url_for('admin.users.edit', id=user.id) }}">Edit</a>
+                        <a class="btn btn-primary btn-sm" href="{{ url_for('admin.users.password', id=user.id) }}">Edit password</a>    
+                    </td>                                        
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

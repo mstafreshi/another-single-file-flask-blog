@@ -1,15 +1,23 @@
-from flask import Flask
+from flask import Flask, request, g
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager
+from flask_login import LoginManager, current_user
+from flask_babel import Babel
+from flask_pagedown import PageDown
 from .config import config
 
 bootstrap = Bootstrap5()
+babel = Babel()
 db = SQLAlchemy()
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
 
+pagedown = PageDown()
+
+def get_locale():
+    return g.lang_code
+       
 def create_app(config_name='default'):
     app = Flask(__name__)
     app.config.from_object(config[config_name])
@@ -17,18 +25,13 @@ def create_app(config_name='default'):
     bootstrap.init_app(app)
     db.init_app(app)
     login_manager.init_app(app)
+    babel.init_app(app, locale_selector=get_locale)
+    pagedown.init_app(app)
     
-    from .blueprints.index import index
-    from .blueprints.auth import auth
-    from .blueprints.errors import error
-    from .blueprints.admin_posts import admin_posts
-    from .blueprints.admin_users import admin_users
-    from .blueprints.admin_comments import admin_comments
+    from .blueprints.user import user
+    from .blueprints.admin import admin
+       
+    app.register_blueprint(user)
+    app.register_blueprint(admin, url_prefix='/admin')
     
-    app.register_blueprint(index)
-    app.register_blueprint(auth, url_prefix='/auth')    
-    app.register_blueprint(error)
-    app.register_blueprint(admin_posts, url_prefix='/admin/posts')
-    app.register_blueprint(admin_users, url_prefix='/admin/users')
-    app.register_blueprint(admin_comments, url_prefix='/admin/comments')
     return app

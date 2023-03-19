@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <div>
+            {% if not category.links.count() %}
+                no records <br>
+            {% else %}
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th></th>
+                        </tr>                                     
+                    </thead>
+                    
+                    <tbody>               
+                        {% for link in category.links.all() %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td><a target=blank href="{{ link.link }}" title="{{ link.alt }}">{{ link.text }}</a></td>                    
+                            <td class="text-end">
+                                <a class="btn btn-danger btn-sm" href="{{ url_for('.delete', id=link.id) }}">Delete</a>
+                                <a class="btn btn-primary btn-sm" href="{{ url_for('.link', category_id=link.linkdump_category_id, id=link.id) }}">Edit</a>
+                            </td>
+                        </tr>
+                        {% endfor %}                 
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>  
+{% endblock %}

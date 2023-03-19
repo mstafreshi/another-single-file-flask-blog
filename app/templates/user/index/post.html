@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    {% include('user/_index_post_common_header.html') %}
+        
+    <div class="row">
+        <div class="col-12" dir="auto">
+            {% if post.body_html %}
+                {{ post.body_html | safe }}
+            {% else %}
+                {{ post.body }}
+            {% endif %}
+        </div>
+    </div>
+        
+    {% for comment in post.comments.filter_by(parent_id = None) if comment.active recursive %}
+        {% if loop.depth == 1 and loop.first %} <div class="row" dir="auto"> {% endif %} 
+            <div  class="mt-2 col-{{ 12 - loop.depth0 }} offset-{{ loop.depth0 }}">
+                <div class="row">
+                    <div class="col-1">
+                    <img class="img-fluid" src="{{ comment.avatar(128) }}">
+                     </div>
+                    <div class="col-11">
+                        <span class="badge bg-warning">
+                        {% if comment.author %}
+                            {{ comment.author.name }}
+                        {% else %}                
+                            {{ comment.name }} 
+                        {% endif %}
+                        </span>
+                        
+                        <span class="badge bg-secondary ">{{ comment.date_created }}</span>
+                        
+                        <p class="mt-2"> {{ comment.comment }} <a href="#comment_form" onclick="responseTo({{ comment.id }}, '{{ comment.comment }}')">{{ _("response") }}</a> <p>               
+                    </div>                
+                </div>
+            </div>  
+              
+            {% if comment.children %}
+                {{ loop(comment.children) }}
+            {% endif %}
+                        
+        {% if loop.depth == 1 and loop.last %} </div> {% endif %}   
+    {% endfor %}
+    
+    
+    {% if post.get_comment %}
+    <div class="row">
+        <div class="col-12">
+            <p class="mt-5 text-secondary" id="comment_form"> {{ _('Leave a comment') }} </p>   
+            {% from 'bootstrap5/form.html' import render_field %}
+            <div id="form_info"></div>
+        </div>
+    </div>           
+    
+    <form method="post" action="" class="form" role="form"> {{ comment_form.hidden_tag() }}
+    <div class="row">
+        {% if not current_user.is_authenticated %}
+            <div class="col-6">                
+                {{ render_field(comment_form.name) }}
+            </div>
+            
+            <div class="col-6">
+                {{ render_field(comment_form.email) }}
+            </div>                 
+        {% endif %}
+        
+        <div class="col-12">
+            {{ render_field(comment_form.comment) }}
+        </div>
+        
+        <div class="col">
+            {{ render_field(comment_form.submit) }}        
+        </div>        
+    </div>
+    </form>
+    {% endif %}
+</div>    
+    
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+  
+    <script>
+    function responseTo(post_id, comment) {
+        //alert(post_id);
+        document.getElementById('parent_id').value=post_id;
+        document.getElementById('form_info').innerHTML="> " + comment;
+        //document.getElementById('comment').focus();   
+    }
+    </script>
+{% endblock %}

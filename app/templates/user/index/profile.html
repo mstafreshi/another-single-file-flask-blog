@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-2"><img src="{{ user.avatar(128) }}"></div>
+        <div class="col-9"> 
+            <div class="row">
+                <div class="col-3  align-self-end"> <h3> {{ user.name }} </h3> </div>                
+                <div class="col-9  text-start align-self-center ">
+                    {% if current_user == user %} 
+                        <a class="btn btn-outline-primary btn-sm" href="{{ url_for('user.index.edit_profile', lang_code=g.lang_code, username=user.username) }}">{{ _('Edit profile') }}</a> 
+                    {% endif %}
+                </div>            
+            
+                <div  class="col-12">              
+                    <p> {{ user.about }} </p>
+                    
+                    <p class="pt-2">
+                    {% if user.instagram %}
+                        <img src="{{ url_for('static', filename="icons/instagram.png") }}" alt="Instagram" width="32" height="32">
+                    {% endif %}
+                    
+                    {% if user.twitter %}
+                        <img src="{{ url_for('static', filename="icons/twitter.png") }}" alt="Twitter" width="32" height="32">
+                    {% endif %}
+                    
+                    {% if user.facebook %}
+                        <img src="{{ url_for('static', filename="icons/facebook.png") }}" alt="Facebook" width="32" height="32">
+                    {% endif %}
+                    
+                    {% if user.github %}
+                        <img src="{{ url_for('static', filename="icons/github.png") }}" alt="Github" width="32" height="32">
+                    {% endif %}
+                    
+                    {% if user.youtube %}
+                        <img src="{{ url_for('static', filename="icons/youtube.png") }}" alt="Youtube" width="32" height="32">
+                    {% endif %}
+                    </p>
+                    
+                    {% if user.posts.count() %}
+                        {% for post in user.posts.all() %}
+                            <a href="{{ url_for('user.index.post', lang_code=post.lang_code, slug=slug) }}">{{post.title }}</a> <br>
+                        {% endfor %}
+                    {% endif %}          
+                </div>
+            </div>
+        </div>                       
+    </div>
+   
+{% endblock %}

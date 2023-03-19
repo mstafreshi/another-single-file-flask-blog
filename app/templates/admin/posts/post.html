@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% from 'bootstrap5/form.html' import render_field %}
+    
+    <form action="" method="post"> {{ form.hidden_tag() }}
+    <div class="row">
+        <div class="col-md-3 align-self-end"> {{ render_field(form.lang_code) }} </div>
+        <div class="col-md-3 align-self-end"> {{ render_field(form.get_comment) }} </div>
+        <div class="col-md-3 align-self-end"> {{ render_field(form.active) }} </div>
+        <div class="col-md-3 align-self-end"> {{ render_field(form.show_in_list) }} </div>
+        <div class="col-md-12"> {{ render_field(form.slug) }} </div>       
+        <div class="col-12 align-self-end"> {{ render_field(form.title) }} </div>
+        <div class="col-12 align-self-end"> {{ render_field(form.tags) }} </div>
+        <div class="col-12 align-self-end"> {{ render_field(form.resume) }} </div>
+        <div class="col-12 align-self-end"> {{ render_field(form.body) }} </div>
+        <div class="col-12 align-self-end"> {{ render_field(form.submit) }} </div>
+    </div>
+   </form>
+    
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ pagedown.include_pagedown() }}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for post in posts %}
+        <div>
+            
+            {% include('user/_index_post_common_header.html') %}
+            
+            <div class="row">     
+                <div class="col-12">               
+                    <p dir="auto">
+                        {{ post.resume }} 
+                    </p>
+                </div>
+            </div>    
+          
+            <div class="row"> 
+                <div class="col-6">
+                    <a href="{{ url_for('.post', lang_code=post.lang_code, slug=post.slug) }}">{{ _('Continue reading this post') }}</a>
+                </div>
+                
+                <div class="col-6 text-end mb-5">
+                    <a href="{{ url_for('.post', lang_code=post.lang_code, slug=post.slug, _anchor='comment') }}" class="btn btn-primary">{{ _('comments') }} <span class="badge bg-secondary">{{ post.comments.filter_by(active=True).count() }}</span></a>                
+                </div>            
+            </div>                                        
+        </div>
+    {% endfor %}
+    
+{% endblock %}

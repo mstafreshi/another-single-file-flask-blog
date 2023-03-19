@@ -1,10 +1,16 @@
+<!doctype html>
 <html>
     <head>
         <title> {% block title %} mstafreshi.ir - {{ title }} {% endblock %} </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
         {% block styles %}
-            {{ bootstrap.load_css() }}            
+            {{ bootstrap.load_css() }}
+            
+            {% if g.lang_code == 'fa' %}
+                <link href="{{ url_for('static', filename='css/main.css') }}" type="text/css" rel="stylesheet" /></head>
+                <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+            {% endif %}         
         {% endblock %}
             
     </head>
@@ -15,40 +21,46 @@
        
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for('index.index') }}">{{ config.PROJECT_NAME }}</a>
+            <a class="navbar-brand" href="{{ url_for('user.index.index') }}">{{ config.PROJECT_NAME }}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              
+                {% for lang in config.LANG_CODES if lang != config.get('DEFAULT_LANG_CODE') %}
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{{ url_for('user.index.index', lang_code=lang) }}">{{ lang | title }}</a>
+                    </li>                
+                {% endfor %}
+                
                 {% if current_user.is_authenticated %}
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="{{ url_for('admin_posts.post') }}">New post</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="{{ url_for('admin_posts.list') }}">Posts</a>
-                    </li>
-                    
-                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="{{ url_for('admin_comments.list') }}">Unapproved comments</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="{{ url_for('admin_users.list') }}">Users</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="{{ url_for('auth.logout') }}">Logout</a>
-                    </li>
+                    {% if current_user.is_administrator() %}                  
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="{{ url_for('admin.posts.list') }}">Posts</a>
+                        </li>
+                        
+                         <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="{{ url_for('admin.comments.list') }}">Comments</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="{{ url_for('admin.linkdump_categories.list') }}">Linkdumps</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="{{ url_for('admin.users.list') }}">Users</a>
+                        </li>
+                    {% endif %}
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="{{ url_for('user.auth.logout') }}">Logout</a>
+                        </li>                                           
                 {% else %}
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="{{ url_for('auth.login') }}">Login</a>
+                      <a class="nav-link active" aria-current="page" href="{{ url_for('user.auth.login', lang_code=g.lang_code) }}">Login</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
+                      <a class="nav-link" href="{{ url_for('user.auth.register', lang_code=g.lang_code) }}">Register</a>
                     </li>
                 {% endif %}
                 <!--
@@ -71,7 +83,6 @@
         <br>
         
          <div class="container">
-                    
             {% for category, msg in get_flashed_messages(with_categories=True) %}
                 <div class="alert alert-{{ category }}">
                     {{ msg }}
@@ -79,18 +90,38 @@
             {% endfor %}
             
             
-            <div style="min-height:250px">
-                {% block content %} {% endblock %}
-            </div>
+                <div class="row">
+                    {% if not request.endpoint.startswith('user.index.') %}
+                    <div class="col-6 h3">  {{ title }} </div>
+                    <div class="col-6 text-self-end text-end">
+                        {% if navigation %}
+                            {% for nav in navigation %}
+                                <a href="{{ nav.link }}">{{ nav.text | safe }}</a>
+                                {% if not loop.last %} | {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    
+                    <div class="col-12"> {% block content %} {% endblock %}</div>            
+                </div>                                                                     
+         </div>
+        
+                  
+                    
+        {% block footer %}
+                <div class="container-fluid">
+                 {% if request.endpoint.startswith('user.') %}
+                    {% include 'user/_linkdumps.html' %}
+                 {% endif %} 
+                 </div>          
+                      
+                 <footer class="mt-5 p-3" style="background-color: rgba(0, 0, 0, 0.2);">All right reserved for mstareshi.ir </footer>                
+        {% endblock %}  
             
-            
-            {% block footer %}                
-                 <div style="padding-top:20px;padding-bottom:20px">All right reserved for mstareshi.ir <div>                
-            {% endblock %}
-            
-            {% block scripts %}
-                {{ bootstrap.load_js() }}       
-            {% endblock %}
-        </div>
+        {% block scripts %}
+            {{ bootstrap.load_js() }}       
+        {% endblock %}
+
     </body>
 </html>
