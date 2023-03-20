@@ -61,14 +61,17 @@ def post(id):
     if not post.id:
         form.lang_code.data = current_user.lang_code
         
-    navigation = [
-        {'text': _("See"), 'link': url_for('user.index.post', \
-            lang_code=post.lang_code, slug=post.slug)},
-        {'text': _('Comments') + ' <span class="badge bg-danger">' + \
+    navigation = []
+    if post.id:
+        navigation.append({'text': _("See"), 'link': url_for('user.index.post',\
+            lang_code=post.lang_code, slug=post.slug)})
+            
+        navigation.append({'text': _('Comments') + ' <span class="badge bg-danger">' + \
             str(post.comments.count()) + '</span>', \
-            'link': url_for('admin.comments.list', id=post.id)},
-        {'text': _('Back to posts'), 'link': url_for('.list') }
-    ]
+            'link': url_for('admin.comments.list', id=post.id)})
+            
+    navigation.append({'text': _('Back to posts'), 'link': url_for('.list') })
+ 
     
     title = _("Edit post") if id else _("Add post")
     data = dict(title=title, form=form, navigation=navigation)

@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title> {% block title %} mstafreshi.ir - {{ title }} {% endblock %} </title>
+        <title> {% block title %} {{ config.get('PROJECT_NAME') }} - {{ title }} {% endblock %} </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
         {% block styles %}
@@ -111,12 +111,12 @@
                     
         {% block footer %}
                 <div class="container-fluid">
-                 {% if request.endpoint.startswith('user.') %}
+                 {% if request.endpoint.startswith('user.index') %}
                     {% include 'user/_linkdumps.html' %}
                  {% endif %} 
                  </div>          
                       
-                 <footer class="mt-5 p-3" style="background-color: rgba(0, 0, 0, 0.2);">All right reserved for mstareshi.ir </footer>                
+                 <footer class="mt-5 p-3" style="background-color: rgba(0, 0, 0, 0.2);">All right reserved for {{ config.get('PROJECT_NAME') }} </footer>                
         {% endblock %}  
             
         {% block scripts %}
