@@ -1,26 +1,23 @@
 <!doctype html>
-<html>
+<html lang="{{ g.lang_code }}">
     <head>
         <title> {% block title %} {{ config.get('PROJECT_NAME') }} - {{ title }} {% endblock %} </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-        {% block styles %}
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='icons/favicon.png') }}"/>        
+        {%- block styles %}            
             {{ bootstrap.load_css() }}
-            
-            {% if g.lang_code == 'fa' %}
-                <link href="{{ url_for('static', filename='css/main.css') }}" type="text/css" rel="stylesheet" /></head>
+            <link href="{{ url_for('static', filename='css/main.css') }}" type="text/css" rel="stylesheet" />                    
+            {% if g.lang_code == 'fa' -%}
                 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
-            {% endif %}         
-        {% endblock %}
-            
+                <link href="{{ url_for('static', filename='css/fa.css') }}" type="text/css" rel="stylesheet" />
+            {%- endif -%}         
+        {% endblock %}            
     </head>
     
-    
-    
     <body>
-       
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="rtl navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
+            <a href="{{ url_for('user.index.index') }}"><img src="{{ url_for('static', filename='icons/favicon.png') }}" alt="" height="36" class="border-0 me-1"></a>
             <a class="navbar-brand" href="{{ url_for('user.index.index') }}">{{ config.PROJECT_NAME }}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -28,39 +25,39 @@
             
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                {% for lang in config.LANG_CODES if lang != config.get('DEFAULT_LANG_CODE') %}
+                {% for lang in config.LANG_CODES  %}
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="{{ url_for('user.index.index', lang_code=lang) }}">{{ lang | title }}</a>
+                      <a class="nav-link {% if request.blueprint == 'user.index' and lang == g.lang_code %}active fw-bold{% endif %}" aria-current="page" href="{{ url_for('user.index.index', lang_code=lang if lang != config.get('DEFAULT_LANG_CODE') else None)}}">{{ lang | title }}</a>
                     </li>                
                 {% endfor %}
                 
                 {% if current_user.is_authenticated %}
                     {% if current_user.is_administrator() %}                  
                         <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="{{ url_for('admin.posts.list') }}">Posts</a>
+                          <a class="nav-link {% if request.blueprint == 'admin.posts' %} active fw-bold {% endif %}" aria-current="page" href="{{ url_for('admin.posts.list') }}">{{ _('Posts') }}</a>
                         </li>
                         
                          <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="{{ url_for('admin.comments.list') }}">Comments</a>
+                          <a class="nav-link {% if request.blueprint == 'admin.comments' %} active fw-bold {% endif %}" " aria-current="page" href="{{ url_for('admin.comments.list') }}">{{ _('Comments') }}</a>
                         </li>
                         
                         <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="{{ url_for('admin.linkdump_categories.list') }}">Linkdumps</a>
+                          <a class="nav-link {% if request.blueprint in ('admin.linkdump_categories', 'admin.linkdumps') %} active fw-bold {% endif %}"  aria-current="page" href="{{ url_for('admin.linkdump_categories.list') }}">{{ _('Linkdumps') }}</a>
                         </li>
                         
                         <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="{{ url_for('admin.users.list') }}">Users</a>
+                          <a class="nav-link {% if request.blueprint == 'admin.users' %} active fw-bold {% endif %}" aria-current="page" href="{{ url_for('admin.users.list') }}">{{ _('Users') }}</a>
                         </li>
                     {% endif %}
                         <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="{{ url_for('user.auth.logout') }}">Logout</a>
+                          <a class="nav-link" aria-current="page" href="{{ url_for('user.auth.logout') }}">{{ _('Logout') }}</a>
                         </li>                                           
                 {% else %}
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="{{ url_for('user.auth.login', lang_code=g.lang_code) }}">Login</a>
+                      <a class="nav-link {% if request.endpoint == 'user.auth.login' %} active fw-bold {% endif %}" aria-current="page" href="{{ url_for('user.auth.login', lang_code=g.lang_code) }}">{{ _('Login') }}</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ url_for('user.auth.register', lang_code=g.lang_code) }}">Register</a>
+                      <a class="nav-link {% if request.endpoint == 'user.auth.register' %} active fw-bold {% endif %}"  href="{{ url_for('user.auth.register', lang_code=g.lang_code) }}">{{ _('Register') }}</a>
                     </li>
                 {% endif %}
                 <!--
@@ -83,40 +80,74 @@
         <br>
         
          <div class="container">
-            {% for category, msg in get_flashed_messages(with_categories=True) %}
-                <div class="alert alert-{{ category }}">
-                    {{ msg }}
-                </div>              
-            {% endfor %}
+            <div class="row">
+                <div class="col" id="main-content">
+                    {% for category, msg in get_flashed_messages(with_categories=True) %}
+                        <div class="alert alert-{{ category }}">
+                            {{ msg }}
+                        </div>              
+                    {% endfor %}
             
             
-                <div class="row">
-                    {% if not request.endpoint.startswith('user.index.') %}
-                    <div class="col-6 h3">  {{ title }} </div>
-                    <div class="col-6 text-self-end text-end">
-                        {% if navigation %}
-                            {% for nav in navigation %}
-                                <a href="{{ nav.link }}">{{ nav.text | safe }}</a>
-                                {% if not loop.last %} | {% endif %}
-                            {% endfor %}
+                    <div class="row">
+                        {% if not request.blueprint == 'user.index' %}
+                            <div class="col-6 h3">  {{ title }} </div>
+                            <div class="col-6 text-self-end text-end">
+                                {% if navigation %}
+                                    {% for nav in navigation %}
+                                        <a href="{{ nav.link }}">{{ nav.text | safe }}</a>
+                                        {% if not loop.last %} | {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
                         {% endif %}
-                    </div>
-                    {% endif %}
                     
-                    <div class="col-12"> {% block content %} {% endblock %}</div>            
-                </div>                                                                     
+                        <div class="col-12"> {% block content %} {% endblock %}</div>            
+                    </div>        
+                </div>
+                
+                {% if request.blueprint == 'user.index' and ( tags.count() or authors.count() )%}
+                <div class="col-lg-3" id="side-bar">
+                
+                    <div class="card mb-3">
+                        <div class="card-header">{{ _("Authors") }}</div>
+                        <div class="card-body">
+                            {% for author_ in authors.all() %}
+                           	<div class="row rtl">
+                            	<div class="col-7 text-start">
+                                <a class="{% if author_ == author %}active{% endif %} mb-1 btn btn-outline-primary btn-sm" href="{{ url_for('user.index.author', lang_code=g.lang_code, username=author_.username) }}">{{ author_.name }} <b>{{ author_.posts.count() }}</b></a> 
+								</div>
+								<div class="col-5 text-end">                                
+                                <a  class="btn btn-outline-primary btn-sm {% if request.endpoint == 'user.index.profile' and user == author_ %} active {% endif %}" href="{{ url_for('user.index.profile', lang_code=g.lang_code, username=author_.username) }}">{{ _('Profile') }}</a>
+                                </div>
+                           	</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                     
+                    <div class="card">
+                        <div class="card-header">{{ _("Tags") }}</div>
+                        <div class="card-body rtl">
+                            {% for tag_ in tags.all() %}
+                                <a class="{% if tag_.name == tag %}active{% endif %} mb-1 btn btn-outline-primary btn-sm" href="{{ url_for('user.index.tag', lang_code=g.lang_code, tag=tag_.name) }}">{{ tag_.name }} <b>{{ tag_.posts.filter_by(active=True, lang_code=g.lang_code).count() }}</b></a> 
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>                                                            
          </div>
         
                   
                     
         {% block footer %}
-                <div class="container-fluid">
-                 {% if request.endpoint.startswith('user.index') %}
+            {% if request.blueprint == 'user.index' %}
+                <div class="mt-5 container-fluid  pt-3">
                     {% include 'user/_linkdumps.html' %}
-                 {% endif %} 
-                 </div>          
-                      
-                 <footer class="mt-5 p-3" style="background-color: rgba(0, 0, 0, 0.2);">All right reserved for {{ config.get('PROJECT_NAME') }} </footer>                
+                </div>
+            {% endif %}                            
+            <footer class="mt-5 p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                {{ _('All right reserved for') }} <a href="{{ url_for('user.index.index') }}">{{ config.get('PROJECT_NAME') }}</a> &copy;2023</footer>                
         {% endblock %}  
             
         {% block scripts %}

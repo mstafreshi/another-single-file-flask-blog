@@ -31,7 +31,7 @@ def edit(id):
     navigation = [
         {'text': _('Users list'), 'link': url_for('.list')}    
     ]           
-    data = dict(title=_("Edit user %(username)s", username=user.username), form=form, user=user, navigation=navigation)
+    data = dict(title=_("Edit user") + " " + user.username, form=form, user=user, navigation=navigation)
     return render_template('admin/users/edit.html', **data)
     
 @bp.route('/password/<int:id>', methods=["GET", "POST"])
@@ -46,5 +46,5 @@ def password(id):
         flash(_("User password changed successfully."), category="success")
         return redirect(url_for('.password', id=user.id))
         
-    data = dict(title=_("Edit %(username)s's password", username=user.username), form=form, user=user)
+    data = dict(title=_("Edit password of") + " " + user.username, form=form, user=user)
     return render_template('admin/users/password.html', **data)   

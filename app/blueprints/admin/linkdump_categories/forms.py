@@ -2,11 +2,12 @@ from flask import current_app
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, SubmitField
 from wtforms.validators import DataRequired, ValidationError
+from flask_babel import lazy_gettext as _l
 
 class CategoryForm(FlaskForm):
-    name = StringField("Name", validators=[DataRequired()])
-    lang_code = SelectField("Language", validators=[DataRequired()])
-    submit = SubmitField("Submit")
+    name = StringField(_l("Name"), validators=[DataRequired()])
+    lang_code = SelectField(_l("Language"), validators=[DataRequired()])
+    submit = SubmitField(_l("Submit"))
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

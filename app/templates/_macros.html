@@ -1,8 +1,54 @@
 {% macro print_status(status) %}
-    {% if status | int > 0 %} Active {% else %} Inactive {% endif %}        
+    {% if status | int > 0 %} {{ _('Active') }} {% else %} {{ _('Inactive') }} {% endif %}        
 {% endmacro %}
 
 
 {% macro print_show_in_list(is_in_list) %}
     {% if is_in_list | int > 0 %} In list {% else %} Not in list {% endif %}        
+{% endmacro %}
+
+{% macro simple_paginate(endpoint, view_args, pagination): %}
+    {% set _ = view_args.pop('page') %}
+    {% if pagination.pages > 1 %}
+        <div class="btn-group">
+        {% if pagination.page != 1 %}
+            <a class="btn btn-secondary" href="{{ url_for(endpoint, page=1, **view_args) }}">&laquo;&laquo;</a>    
+        {% else %}
+            <a class="btn btn-secondary disabled">&laquo;&laquo;</a> 
+        {% endif %}
+        
+        {% if pagination.has_prev %}
+            <a class="btn btn-secondary" href="{{ url_for(endpoint, page=pagination.prev_num, **view_args) }}">&laquo;</a>
+        {% else %}
+            <a class="btn btn-secondary disabled">&laquo;</a>
+        {% endif %}
+        
+        {% if pagination.has_next %}
+            <a class="btn btn-secondary" href="{{ url_for(endpoint, page=pagination.next_num, **view_args) }}">&raquo;</a>
+        {% else %}
+            <a class="btn btn-secondary disabled">&raquo;</a>        
+        {% endif %}
+        
+        {% if pagination.pages != pagination.page %}
+            <a class="btn btn-secondary" href="{{ url_for(endpoint, page=pagination.pages, **view_args) }}">&raquo;&raquo;</a>         
+        {% else %}
+            <a class="btn btn-secondary disabled">&raquo;&raquo;</a>
+        {% endif %}
+        </div>
+    {% endif %}         
+{% endmacro %}
+
+{% macro paginate(endpoint, view_args, pagination): %}
+    {% set _ = view_args.pop('page') %}
+    {% for num in pagination.iter_pages() if pagination.pages > 1 %}
+        {% if loop.first %} <div class="btn-group"> {% endif %}
+        
+        {% if num is none %}
+            <button class="btn btn-secondary">&hellip;</button>
+        {% else %}
+            <a class="btn btn-secondary {% if num == pagination.page %} disabled {% endif %}" href="{{ url_for(endpoint, page=num, **view_args) }}">{{ num }}</a>
+        {% endif %}
+        
+        {% if loop.last %} </div> {% endif %} 
+    {% endfor %}    
 {% endmacro %}

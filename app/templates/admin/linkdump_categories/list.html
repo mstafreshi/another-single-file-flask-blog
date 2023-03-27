@@ -5,7 +5,7 @@
                 <thead>
                     <tr>
                         <th class="text-center">#</th>
-                        <th>Name</th>
+                        <th>{{ _('Name') }}</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -23,12 +23,12 @@
                             
                             <td>
                                 <span class="badge bg-primary">{{ category.lang_code }}</span>
-                                <span class="badge bg-success">{{category.links.count() }} {{ _('Links') }}</span>                                        
+                                <span class="badge bg-warning">{{category.links.count() }} {{ _('Links') }}</span>                                        
                             </td>
                                                 
                             <td class="text-end">
                                 {% if not category.links.count() %}                                    
-                                    <a class="btn btn-danger btn-sm" href="{{ url_for('.delete', id=category.id) }}">Delete</a>
+                                    <a class="btn btn-danger btn-sm" href="{{ url_for('.delete', id=category.id) }}">{{ _('Delete') }}</a>
                                 {% endif %}
                             </td>                                        
                         </tr>

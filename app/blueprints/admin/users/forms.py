@@ -2,22 +2,23 @@ from flask import current_app
 from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, TextAreaField, PasswordField, SubmitField, FileField, SelectField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
+from flask_babel import lazy_gettext as _l
 
 class EditForm(FlaskForm):
-    name = StringField("name", validators=[DataRequired()])
-    email = StringField("Email", validators=[DataRequired(), Email()])    
-    twitter = StringField("Twitter account")
-    facebook = StringField("Facebook account")
-    linkedin = StringField("Linkedin account")
-    instagram = StringField("Instagram account")
-    github = StringField("Github account")
-    youtube = StringField("Youtube account")
-    image = FileField("Profile image")
-    about = TextAreaField("About")
-    lang_code = SelectField("Language", coerce=str, validators=[DataRequired()],
-                    description = "Admin panel will be shown in this language")                                
-    active = BooleanField("Active")    
-    submit = SubmitField("Edit")  
+    name = StringField(_l("Name"), validators=[DataRequired()])
+    email = StringField(_l("Email"), validators=[DataRequired(), Email()])    
+    twitter = StringField(_l("Twitter account"))
+    facebook = StringField(_l("Facebook account"))
+    linkedin = StringField(_l("Linkedin account"))
+    instagram = StringField(_l("Instagram account"))
+    github = StringField(_l("Github account"))
+    youtube = StringField(_l("Youtube account"))
+    image = FileField(_l("Profile image"))
+    about = TextAreaField(_l("About"))
+    lang_code = SelectField(_l("Language"), coerce=str, validators=[DataRequired()],
+                    description = _l("Admin panel will be shown in this language"))                                
+    active = BooleanField(_l("Active"))    
+    submit = SubmitField(_l("Edit"))  
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -41,6 +42,6 @@ class EditForm(FlaskForm):
         obj.lang_code = self.lang_code.data
             
 class PasswordForm(FlaskForm):
-    password = PasswordField("Password", validators=[DataRequired(), EqualTo('confirm_password', message="Password must match with Confirm Password")])
-    confirm_password = PasswordField("Confirm password", validators=[DataRequired()])
-    submit = SubmitField("Edit")
+    password = PasswordField(_l("Password"), validators=[DataRequired(), EqualTo('confirm_password', message=_l("Password must match with Confirm password"))])
+    confirm_password = PasswordField(_l("Confirm password"), validators=[DataRequired()])
+    submit = SubmitField(_l("Edit"))

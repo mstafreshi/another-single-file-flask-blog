@@ -2,7 +2,7 @@ from flask import Flask, request, g
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, current_user
-from flask_babel import Babel
+from flask_babel import Babel, lazy_gettext as _l
 from flask_pagedown import PageDown
 from .config import config
 
@@ -11,7 +11,11 @@ babel = Babel()
 db = SQLAlchemy()
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
-login_manager.login_view = 'auth.login'
+login_manager.login_message = _l("For access to this page, please login.")
+login_manager.login_message_category = 'danger'
+# I have decorated a function in auth views file with 
+# @login_manager.unauthorized_handler. Therefore we do'nt no need to this.
+#login_manager.login_view = 'user.auth.login'
 
 pagedown = PageDown()
 

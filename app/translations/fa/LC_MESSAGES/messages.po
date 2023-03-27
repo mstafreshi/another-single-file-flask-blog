@@ -7,223 +7,494 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-03-15 23:45+0330\n"
-"PO-Revision-Date: 2023-03-13 15:10+0330\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: fa\n"
+"POT-Creation-Date: 2023-03-27 22:17+0330\n"
+"PO-Revision-Date: 2023-03-27 22:19+0330\n"
+"Last-Translator: \n"
 "Language-Team: fa <LL@li.org>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.12.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
-#: app/blueprints/admin_comments/views.py:16
-msgid "Manage comments"
-msgstr "مدیریت کامنت‌ها"
+#: app/__init__.py:14
+msgid "For access to this page, please login."
+msgstr "برای دسترسی به این صفحه لطفا وارد سایت شوید."
 
-#: app/blueprints/admin_comments/views.py:27
-msgid "Comment deleted successfully"
+#: app/blueprints/admin/comments/views.py:16
+msgid "No approved comments"
+msgstr "کامنت‌های تایید نشده"
+
+#: app/blueprints/admin/comments/views.py:16
+msgid "Manage comments of"
+msgstr "مدیریت کامنت‌های"
+
+#: app/blueprints/admin/comments/views.py:18
+#: app/blueprints/admin/posts/views.py:74
+msgid "Back to posts"
+msgstr "بازگشت به لیست پست‌ها"
+
+#: app/blueprints/admin/comments/views.py:31
+msgid "Comment deleted successfully."
 msgstr "کامنت با موفقیت حذف شد."
 
-#: app/blueprints/admin_comments/views.py:43
-msgid "Comment acivated successfully"
+#: app/blueprints/admin/comments/views.py:47
+msgid "Comment activated successfully."
 msgstr "کامنت با موفقیت فعال شد."
 
-#: app/blueprints/admin_linkdump_categories/views.py:13
-msgid "Add category"
-msgstr ""
+#: app/blueprints/admin/comments/views.py:62
+msgid "Comment deactivated successfully."
+msgstr "کامنت با موفقیت غیر فعال شد."
 
-#: app/blueprints/admin_linkdump_categories/views.py:15
-msgid "Linkdump categories"
-msgstr ""
+#: app/blueprints/admin/linkdump_categories/forms.py:8
+#: app/blueprints/admin/users/forms.py:8 app/blueprints/user/auth/forms.py:14
+#: app/blueprints/user/index/forms.py:7
+#: app/templates/admin/linkdump_categories/list.html:8
+#: app/templates/admin/users/list.html:9
+msgid "Name"
+msgstr "نام"
 
-#: app/blueprints/admin_linkdump_categories/views.py:31
-#, fuzzy
-msgid "Category added successfully."
-msgstr "کاربر با موفقیت ویرایش شد."
-
-#: app/blueprints/admin_linkdump_categories/views.py:37
-#, fuzzy
-msgid "Category list"
-msgstr "لیست کاربران"
-
-#: app/blueprints/admin_linkdump_categories/views.py:39
-msgid "Add new category"
-msgstr ""
-
-#: app/blueprints/admin_linkdump_categories/views.py:47
-#, fuzzy
-msgid "Category deleted successfully."
-msgstr "کامنت با موفقیت حذف شد."
-
-#: app/blueprints/admin_linkdumps/views.py:13
-#, python-format
-msgid "Linkdump: %(name)s"
-msgstr ""
-
-#: app/blueprints/admin_linkdumps/views.py:38
-#, fuzzy
-msgid "Link added successfully"
-msgstr "کامنت با موفقیت ثبت شد."
-
-#: app/blueprints/admin_linkdumps/views.py:42
-msgid "Link"
-msgstr ""
-
-#: app/blueprints/admin_linkdumps/views.py:51
-#, fuzzy
-msgid "Link deleted successfully."
-msgstr "کامنت با موفقیت حذف شد."
-
-#: app/blueprints/admin_posts/forms.py:9
-msgid "Slug"
-msgstr ""
-
-#: app/blueprints/admin_posts/forms.py:10
-msgid "Title"
-msgstr "عنوان"
-
-#: app/blueprints/admin_posts/forms.py:11
-msgid "active"
-msgstr "فعال"
-
-#: app/blueprints/admin_posts/forms.py:12
-#, fuzzy
-msgid "Show in list"
-msgstr "این پست را در لیست نمایش بده"
-
-#: app/blueprints/admin_posts/forms.py:13
+#: app/blueprints/admin/linkdump_categories/forms.py:9
+#: app/blueprints/admin/posts/forms.py:14
+#: app/blueprints/admin/users/forms.py:18
 msgid "Language"
-msgstr ""
+msgstr "زبان"
 
-#: app/blueprints/admin_posts/forms.py:14
-msgid "Resume"
-msgstr "خلاصه"
-
-#: app/blueprints/admin_posts/forms.py:15
-msgid "Body"
-msgstr "بدنه"
-
-#: app/blueprints/admin_posts/forms.py:16
-msgid "Tags"
-msgstr "تگ‌ها"
-
-#: app/blueprints/admin_posts/forms.py:17
+#: app/blueprints/admin/linkdump_categories/forms.py:10
+#: app/blueprints/admin/linkdumps/forms.py:11
+#: app/blueprints/admin/posts/forms.py:19 app/blueprints/user/index/forms.py:10
 msgid "Submit"
 msgstr "ارسال"
 
-#: app/blueprints/admin_posts/views.py:20
-#, fuzzy
+#: app/blueprints/admin/linkdump_categories/views.py:13
+msgid "Add category"
+msgstr "افزودن دسته جدید"
+
+#: app/blueprints/admin/linkdump_categories/views.py:15
+#: app/blueprints/admin/linkdump_categories/views.py:43
+#: app/blueprints/admin/linkdumps/views.py:25
+msgid "Categories list"
+msgstr "لیست دسته‌ها"
+
+#: app/blueprints/admin/linkdump_categories/views.py:31
+msgid "Category added successfully."
+msgstr "دسته با موفقیت ثبت شد."
+
+#: app/blueprints/admin/linkdump_categories/views.py:39
+msgid "Category links"
+msgstr "لیست دسته‌ها"
+
+#: app/blueprints/admin/linkdump_categories/views.py:49
+msgid "Add new category"
+msgstr "افزودن دسته جدید"
+
+#: app/blueprints/admin/linkdump_categories/views.py:49
+#: app/blueprints/admin/linkdumps/views.py:21
+msgid "Edit category"
+msgstr "ویرایش دسته"
+
+#: app/blueprints/admin/linkdump_categories/views.py:57
+msgid "Category have links. Can not be deleted."
+msgstr "در این دسته لینک تعریف شده است و قابل حذف کردن نیست."
+
+#: app/blueprints/admin/linkdump_categories/views.py:62
+msgid "Category deleted successfully."
+msgstr "دسته با موفقیت حذف شد."
+
+#: app/blueprints/admin/linkdumps/forms.py:7
+msgid "Category"
+msgstr "دسته"
+
+#: app/blueprints/admin/linkdumps/forms.py:8
+msgid "Text"
+msgstr "متن"
+
+#: app/blueprints/admin/linkdumps/forms.py:9
+msgid "Alt text"
+msgstr "متن ‌title"
+
+#: app/blueprints/admin/linkdumps/forms.py:10
+msgid "Link"
+msgstr "لینک"
+
+#: app/blueprints/admin/linkdumps/views.py:17
+#: app/blueprints/admin/linkdumps/views.py:68
+msgid "Add link"
+msgstr "افزودن لینک"
+
+#: app/blueprints/admin/linkdumps/views.py:55
+msgid "Link added successfully"
+msgstr "لینک با موفقیت ثبت شد"
+
+#: app/blueprints/admin/linkdumps/views.py:63
+msgid "Back to"
+msgstr "بازگشت به"
+
+#: app/blueprints/admin/linkdumps/views.py:68
+msgid "Edit link"
+msgstr "ویرایش لینک"
+
+#: app/blueprints/admin/linkdumps/views.py:78
+msgid "Link deleted successfully."
+msgstr "لینک با موفقیت حذف شد."
+
+#: app/blueprints/admin/posts/forms.py:9
+msgid "Slug"
+msgstr "اسلاگ"
+
+#: app/blueprints/admin/posts/forms.py:10
+#: app/templates/admin/linkdumps/list.html:12
+#: app/templates/admin/posts/list.html:11
+msgid "Title"
+msgstr "عنوان"
+
+#: app/blueprints/admin/posts/forms.py:11
+#: app/blueprints/admin/users/forms.py:20 app/templates/_macros.html:2
+#: app/templates/admin/comments/list.html:27
+msgid "Active"
+msgstr "فعال"
+
+#: app/blueprints/admin/posts/forms.py:12
+msgid "Show in list?"
+msgstr "نمایش در لیست پست‌ها؟"
+
+#: app/blueprints/admin/posts/forms.py:13
+msgid "Get comment"
+msgstr "کامنت فعال است"
+
+#: app/blueprints/admin/posts/forms.py:15
+msgid "Resume"
+msgstr "خلاصه"
+
+#: app/blueprints/admin/posts/forms.py:16
+msgid "Body"
+msgstr "بدنه"
+
+#: app/blueprints/admin/posts/forms.py:17
+msgid "Some markdown tags are enabled"
+msgstr "تعداد محدودی تگ markdown فعال است"
+
+#: app/blueprints/admin/posts/forms.py:18 app/templates/base.html:128
+msgid "Tags"
+msgstr "تگ‌ها"
+
+#: app/blueprints/admin/posts/views.py:15
+#: app/blueprints/admin/posts/views.py:77
 msgid "Add new post"
 msgstr "پست جدید"
 
-#: app/blueprints/admin_posts/views.py:22
+#: app/blueprints/admin/posts/views.py:17
 msgid "Posts list"
 msgstr "لیست پست‌ها"
 
-#: app/blueprints/admin_posts/views.py:59
-msgid "Post added/editted successfuly"
+#: app/blueprints/admin/posts/views.py:55
+msgid "Post added/editted successfuly."
 msgstr "پست با موفقیت ثبت/ویرایش شد."
 
-#: app/blueprints/admin_posts/views.py:66
+#: app/blueprints/admin/posts/views.py:66
+msgid "View post"
+msgstr "مشاهده پست"
+
+#: app/blueprints/admin/posts/views.py:70 app/templates/base.html:40
+#: app/templates/user/index/post.html:19
+msgid "Comments"
+msgstr "کامنت‌(ها)"
+
+#: app/blueprints/admin/posts/views.py:77
 msgid "Edit post"
 msgstr "ویرایش پست"
 
-#: app/blueprints/admin_posts/views.py:66
-msgid "Add post"
-msgstr "پست جدید"
+#: app/blueprints/admin/users/forms.py:9 app/blueprints/user/auth/forms.py:15
+#: app/blueprints/user/index/forms.py:8 app/templates/admin/users/list.html:10
+msgid "Email"
+msgstr "ایمیل"
 
-#: app/blueprints/admin_users/views.py:12
-#: app/blueprints/admin_users/views.py:32
+#: app/blueprints/admin/users/forms.py:10
+msgid "Twitter account"
+msgstr "اکانت توییتر"
+
+#: app/blueprints/admin/users/forms.py:11
+msgid "Facebook account"
+msgstr "اکانت فیس‌بوک"
+
+#: app/blueprints/admin/users/forms.py:12
+msgid "Linkedin account"
+msgstr "اکانت لینکدین"
+
+#: app/blueprints/admin/users/forms.py:13
+msgid "Instagram account"
+msgstr "اکانت اینستاگرام"
+
+#: app/blueprints/admin/users/forms.py:14
+msgid "Github account"
+msgstr "اکانت گیت‌هاب"
+
+#: app/blueprints/admin/users/forms.py:15
+msgid "Youtube account"
+msgstr "اکانت یوتیوب"
+
+#: app/blueprints/admin/users/forms.py:16
+msgid "Profile image"
+msgstr "تصویر پروفایل"
+
+#: app/blueprints/admin/users/forms.py:17
+msgid "About"
+msgstr "در مورد من"
+
+#: app/blueprints/admin/users/forms.py:19
+msgid "Admin panel will be shown in this language"
+msgstr "پنل ادمین به این زبان نمایش داده خواهد شد"
+
+#: app/blueprints/admin/users/forms.py:21
+#: app/blueprints/admin/users/forms.py:47
+#: app/templates/admin/linkdumps/list.html:24
+#: app/templates/admin/users/list.html:27
+#: app/templates/user/_index_post_common_header.html:30
+msgid "Edit"
+msgstr "ویرایش"
+
+#: app/blueprints/admin/users/forms.py:45 app/blueprints/user/auth/forms.py:9
+#: app/blueprints/user/auth/forms.py:19
+msgid "Password"
+msgstr "کلمه عبور"
+
+#: app/blueprints/admin/users/forms.py:45 app/blueprints/user/auth/forms.py:19
+msgid "Password must match with Confirm password"
+msgstr "کلمه عبور با تکرار آن یکسان نیست"
+
+#: app/blueprints/admin/users/forms.py:46 app/blueprints/user/auth/forms.py:20
+msgid "Confirm password"
+msgstr "تکرار کلمه عبور"
+
+#: app/blueprints/admin/users/views.py:12
+#: app/blueprints/admin/users/views.py:32
 msgid "Users list"
 msgstr "لیست کاربران"
 
-#: app/blueprints/admin_users/views.py:26
+#: app/blueprints/admin/users/views.py:26
 msgid "User editted successfully"
-msgstr "کاربر با موفقیت ویرایش شد."
+msgstr "کاربر با موفقیت ویرایش شد"
 
-#: app/blueprints/admin_users/views.py:34
-#, python-format
-msgid "Edit user %(username)s"
-msgstr "ویرایش کاربر ‌٪(username)s"
+#: app/blueprints/admin/users/views.py:34
+msgid "Edit user"
+msgstr "ویرایش کاربر"
 
-#: app/blueprints/admin_users/views.py:46
-#, fuzzy
+#: app/blueprints/admin/users/views.py:46
 msgid "User password changed successfully."
-msgstr "کاربر با موفقیت ویرایش شد."
+msgstr "کلمه عبور با موفقیت ویرایش شد."
 
-#: app/blueprints/admin_users/views.py:49
-#, fuzzy, python-format
-msgid "Edit %(username)s's password"
-msgstr "نام کاربری یا کلمه عبور اشتباه است."
+#: app/blueprints/admin/users/views.py:49
+msgid "Edit password of"
+msgstr "ویرایش کلمه عبور"
 
-#: app/blueprints/auth/views.py:17
-msgid "Invalid username or password"
-msgstr "نام کاربری یا کلمه عبور اشتباه است."
+#: app/blueprints/user/auth/forms.py:8 app/blueprints/user/auth/forms.py:16
+#: app/templates/admin/users/list.html:8
+msgid "Username"
+msgstr "نام کاربری"
 
-#: app/blueprints/auth/views.py:25
-msgid "Successfuly logged out"
-msgstr "خروج از سایت با موفقیت انجام شد."
+#: app/blueprints/user/auth/forms.py:10
+msgid "Remember me"
+msgstr "من را به خاطر بسپار"
 
-#: app/blueprints/auth/views.py:41
-msgid "Registered successfully. Please Enter!"
-msgstr "ثبت‌نام موفقیت‌آمیز بود. لطفا وارد سایت شوید"
+#: app/blueprints/user/auth/forms.py:11 app/blueprints/user/auth/views.py:29
+#: app/templates/base.html:56
+msgid "Login"
+msgstr "ورود"
 
-#: app/blueprints/auth/views.py:44
+#: app/blueprints/user/auth/forms.py:17
+msgid "Uername must have only letters, numbers, dots or underscores"
+msgstr "نام کاربری باید فقط شامل حروف و اعداد لاتبن و نقطه و زیر خط باشد"
+
+#: app/blueprints/user/auth/forms.py:21 app/blueprints/user/auth/views.py:62
+#: app/templates/base.html:59
 msgid "Register"
 msgstr "ثبت‌نام"
 
-#: app/blueprints/errors/views.py:7
+#: app/blueprints/user/auth/forms.py:25
+msgid "Email already exists."
+msgstr "این ایمیل قبلا در سامانه ثبت شده است."
+
+#: app/blueprints/user/auth/forms.py:29
+msgid "Username have been taken."
+msgstr "این نام کاربری قبلا ثبت شده است."
+
+#: app/blueprints/user/auth/views.py:27
+msgid "Invalid username or password"
+msgstr "نام کاربری یا کلمه عبور اشتباه است"
+
+#: app/blueprints/user/auth/views.py:35
+msgid "Successfuly logged out"
+msgstr "خروج از سایت با موفقیت انجام شد"
+
+#: app/blueprints/user/auth/views.py:59
+msgid "Registered successfully. Please Enter."
+msgstr "ثبت‌نام موفقیت‌آمیز بود. لطفا وارد سامانه شوید."
+
+#: app/blueprints/user/error/views.py:7 app/templates/user/error/404.html:4
 msgid "Page not found"
-msgstr ""
+msgstr "صفحه یافت نشد"
 
-#: app/blueprints/errors/views.py:12
+#: app/blueprints/user/error/views.py:12
 msgid "Internal server error"
-msgstr ""
+msgstr "خطایی در سرور رخ داده است"
 
-#: app/blueprints/errors/views.py:18
+#: app/blueprints/user/error/views.py:18 app/templates/user/error/403.html:4
 msgid "Access forbidden"
-msgstr ""
+msgstr "دسترسی به این قسمت منع شده است"
 
-#: app/blueprints/index/views.py:21
+#: app/blueprints/user/index/forms.py:9
+msgid "comment"
+msgstr "کامنت‌"
+
+#: app/blueprints/user/index/views.py:27
 msgid "Home"
 msgstr "صفحه اول"
 
-#: app/blueprints/index/views.py:54
-msgid "Comment saved successfully"
-msgstr "کامنت با موفقیت ثبت شد."
+#: app/blueprints/user/index/views.py:48 app/templates/user/index/index.html:9
+msgid "Posts of"
+msgstr "لیست پست‌های"
 
-#: app/templates/_index_post_common_header.html:14
+#: app/blueprints/user/index/views.py:80
+msgid "Comment saved successfully"
+msgstr "کامنت با موفقیت ثبت شد"
+
+#: app/blueprints/user/index/views.py:96
+msgid "Edit Profile"
+msgstr "ویرایش پروفایل"
+
+#: app/blueprints/user/index/views.py:117
+msgid "Profile saved seccessfully"
+msgstr "پروفایل با موفقیت ذخیره شد"
+
+#: app/templates/_macros.html:2
+msgid "Inactive"
+msgstr "غیر فعال"
+
+#: app/templates/base.html:36
+msgid "Posts"
+msgstr "لیست پست‌ها"
+
+#: app/templates/base.html:44
+msgid "Linkdumps"
+msgstr "لینکدونی"
+
+#: app/templates/base.html:48
+msgid "Users"
+msgstr "لیست کاربران"
+
+#: app/templates/base.html:52
+msgid "Logout"
+msgstr "خروج"
+
+#: app/templates/base.html:112
+msgid "Authors"
+msgstr "نویسندگان"
+
+#: app/templates/base.html:120
+msgid "Profile"
+msgstr "پروفایل"
+
+#: app/templates/base.html:149
+msgid "All right reserved for"
+msgstr "تمامی حقوق محفوظ است برای"
+
+#: app/templates/admin/comments/list.html:5
+#: app/templates/admin/linkdumps/list.html:6
+#: app/templates/admin/posts/list.html:5
+msgid "No records"
+msgstr "رکوردی یافت نشد"
+
+#: app/templates/admin/comments/list.html:21
+#: app/templates/admin/linkdump_categories/list.html:31
+#: app/templates/admin/linkdumps/list.html:23
+msgid "Delete"
+msgstr "حذف"
+
+#: app/templates/admin/comments/list.html:32
+msgid "Deactive"
+msgstr "غیر فعال"
+
+#: app/templates/admin/linkdump_categories/list.html:26
+msgid "Links"
+msgstr "لینک‌ها"
+
+#: app/templates/admin/users/list.html:11
+msgid "Status"
+msgstr "وضعیت"
+
+#: app/templates/admin/users/list.html:12
+msgid "Created at"
+msgstr "ایجاد شده در"
+
+#: app/templates/admin/users/list.html:28
+msgid "Edit password"
+msgstr "ویرایش کلمه عبور"
+
+#: app/templates/user/_index_post_common_header.html:14
 msgid "Posted by"
 msgstr "نوشته شده به وسیله"
 
-#: app/templates/_index_post_common_header.html:15
+#: app/templates/user/_index_post_common_header.html:20
 msgid "on"
 msgstr "در"
 
-#: app/templates/_index_post_common_header.html:18
+#: app/templates/user/_index_post_common_header.html:23
 msgid "under"
 msgstr "تحت عناوین"
 
-#: app/templates/admin_linkdump_categories/list.html:20
-msgid "Links"
-msgstr ""
+#: app/templates/user/error/500.html:4
+msgid "Internal server error occurred."
+msgstr "خطایی در سرور رخ داده است."
 
-#: app/templates/index/index.html:19
+#: app/templates/user/index/index.html:7
+msgid "Tag"
+msgstr "تگ‌"
+
+#: app/templates/user/index/index.html:29
 msgid "Continue reading this post"
 msgstr "ادامه مطلب"
 
-#: app/templates/index/index.html:23
+#: app/templates/user/index/index.html:33
 msgid "comments"
-msgstr "کامنت‌ها"
+msgstr "کامنت‌(ها)"
 
-#: app/templates/index/post.html:35
-msgid "response"
-msgstr ""
+#: app/templates/user/index/post.html:41
+msgid "Response"
+msgstr "پاسخ"
 
-#: app/templates/index/post.html:49
-#, fuzzy
+#: app/templates/user/index/post.html:57
 msgid "Leave a comment"
-msgstr "یک نظر بنویسید."
+msgstr "نظری بنویسید"
 
+#: app/templates/user/index/profile.html:12
+msgid "Edit profile"
+msgstr "ویرایش پروفایل"
+
+#: app/templates/user/index/profile.html:16
+msgid "Edit profile as Admin"
+msgstr "ویرایش پروفایل به عنوان ادمین"
+
+#: app/templates/user/index/profile.html:47
+msgid "Latest posts"
+msgstr "آخرین پست‌ها"
+
+#: app/templates/user/index/profile.html:57
+msgid "Latest comments"
+msgstr "آخرین کامنت‌ها"
+
+#~ msgid "Add post"
+#~ msgstr "پست جدید"
+
+#~ msgid "Edit user %(username)s"
+#~ msgstr "ویرایش کاربر ‌٪(username)s"
+
+#~ msgid "Edit %(username)s's password"
+#~ msgstr "نام کاربری یا کلمه عبور اشتباه است."
+
+#~ msgid "name"
+#~ msgstr "نام"
+
+#~ msgid "Tag:"
+#~ msgstr "تگ‌:"

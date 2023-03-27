@@ -2,13 +2,13 @@
 
 {% block content %}
     {% if not posts | length %}
-        No hay records <br>
+        {{ _('No records') }} <br>
     {% else %}
         <table class="table table-hover">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Title</th>
+                    <th>{{ _('Title') }}</th>
                     <th></th>
                     <th></th>
                     <th></th>
@@ -26,7 +26,7 @@
                     <td> {{ post.lang_code }}
                     <td>{{ print_status(post.active) }}</td>
                     <td>{{ print_show_in_list(post.show_in_list) }}</td>
-                    <td><a href="{{ url_for('admin.comments.list', id=post.id) }}">{{ post.comments.all() | length }} comments</a></td>                    
+                    <td><a href="{{ url_for('admin.comments.list', id=post.id) }}">{{ post.comments.count() }} {{ _("comments") }}</a></td>                    
                 </tr>
                 {% endfor %}                 
             </tbody>

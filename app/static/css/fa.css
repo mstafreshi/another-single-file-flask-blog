@@ -1,0 +1,35 @@
+body {
+    font-family: vazirmatn
+}
+
+a {
+    text-decoration:none
+}
+
+pre {
+    text-align:left;
+    direction:ltr;
+    border-style:dashed;
+    border-color:#2f6fab;
+    border-width:1px;
+    padding: 10px;
+    background-color:#f9f9f9;
+    font-family: monospace,Courier;
+    font-size: 0.9em;
+}
+
+.card-header {
+    direction: rtl;
+}
+
+footer {
+    direction: rtl;
+}
+
+.profile {
+    direction: rtl;
+}
+
+.rtl {
+    direction:rtl
+}

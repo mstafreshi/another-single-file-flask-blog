@@ -1,6 +1,6 @@
-<div class="row">
-
-{% for category in LinkdumpCategory.query.filter_by(lang_code=g.lang_code).all() %}      
+{% for category in LinkdumpCategory.query.filter_by(lang_code=g.lang_code).all() %}
+    {% if loop.first %} <div class="row border-top pt-3 rtl"> {% endif %} 
+        
     {% if category.links.count() %}        
         <div class="col-4">
             {{ category.name }} <br>
@@ -9,6 +9,6 @@
             {% endfor %}
         </div>
     {% endif %}
+    
+    {% if loop.last %} </div> {% endif %}
 {% endfor %}
-
-</div>

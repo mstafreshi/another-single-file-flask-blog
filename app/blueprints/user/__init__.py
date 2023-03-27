@@ -13,4 +13,8 @@ user.register_blueprint(error)
 
 @user.before_app_request
 def before_request():
-    g.lang_code = request.view_args.get('lang_code', current_user.get_lang_code())
+    if request.endpoint == 'user.index.index' \
+        and request.view_args.get('lang_code') is None:
+            g.lang_code = current_app.config.get('DEFAULT_LANG_CODE')
+    else:            
+        g.lang_code = request.view_args.get('lang_code') or current_user.get_lang_code()

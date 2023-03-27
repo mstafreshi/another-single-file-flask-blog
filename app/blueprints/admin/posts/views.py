@@ -52,7 +52,7 @@ def post(id):
             db.session.add(post)
             db.session.commit()
         
-            flash(_('Post added/editted successfuly'), category='success')
+            flash(_('Post added/editted successfuly.'), category='success')
             return redirect(url_for('.post', id=post.id))
     else:
         form = PostForm(obj=post)
@@ -62,17 +62,18 @@ def post(id):
         form.lang_code.data = current_user.lang_code
         
     navigation = []
-    if post.id:
-        navigation.append({'text': _("See"), 'link': url_for('user.index.post',\
+    if post.id and post.active:
+        navigation.append({'text': _("View post"), 'link': url_for('user.index.post',\
             lang_code=post.lang_code, slug=post.slug)})
-            
-        navigation.append({'text': _('Comments') + ' <span class="badge bg-danger">' + \
+
+    if post.comments.count():
+        navigation.append({'text': _('Comments') + ' <span class="badge bg-success">' + \
             str(post.comments.count()) + '</span>', \
             'link': url_for('admin.comments.list', id=post.id)})
             
     navigation.append({'text': _('Back to posts'), 'link': url_for('.list') })
  
     
-    title = _("Edit post") if id else _("Add post")
+    title = _("Edit post") if id else _("Add new post")
     data = dict(title=title, form=form, navigation=navigation)
     return render_template('admin/posts/post.html', **data)

@@ -2,13 +2,14 @@
 
 {% block content %}   
     {% if not comments.all() | length %}
-        no comments
+        {{ _('No records') }}
     {% else %}
         {% for comment in comments %}
             <div dir="auto" class="hover-overlay p-3 mt-3 mb-3 border {% if comment.active %} border-success {% else %} border-danger {% endif %}">                
                 <p> {{ comment.comment }} </p>
                 
-                <span class="badge bg-secondary">{{ comment.name }}</span> 
+                <span class="badge bg-secondary">                
+                {{ comment.author.name or comment.name }}</span> 
                 
                 <a class="badge bg-primary" href="{{ url_for('admin.posts.post', id=comment.post.id) }}">
                     {{ comment.post.title }}
@@ -23,12 +24,12 @@
                 {% if not comment.active %}
                     <a class="badge border border-danger text-primary" 
                         href="{{ url_for('.active_comment', id=comment.id, back_to_post='ok' if post_id else None) }}">
-                            Active
+                            {{ _('Active') }}
                     </a>
                 {% else %}
                     <a class="badge border border-success text-primary" 
                         href="{{ url_for('.deactive_comment', id=comment.id, back_to_post='ok' if post_id else None) }}">
-                            Deactive
+                            {{ _('Deactive') }}
                     </a>                    
                 {% endif %}
             </div>

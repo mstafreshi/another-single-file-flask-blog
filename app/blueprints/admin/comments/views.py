@@ -13,7 +13,7 @@ def list(id):
         post = Post.query.get_or_404(id)
         comments = post.comments
     
-    title = _("Not approved comments") if id is None else _("Manage comments of \"") + post.title + "\""
+    title = _("No approved comments") if id is None else _("Manage comments of") + " " + post.title
     navigation = [
         {'text': _('Back to posts'), 'link': url_for('admin.posts.list') }
     ]
@@ -28,7 +28,7 @@ def delete_comment(id):
     db.session.delete(comment)
     db.session.commit()
     
-    flash(_("Comment deleted successfully"), category="success")
+    flash(_("Comment deleted successfully."), category="success")
     return redirect(url_for('.list', id=post_id))
     
     
@@ -44,7 +44,7 @@ def active_comment(id):
     db.session.add(comment)
     db.session.commit()
     
-    flash(_("Comment acivated successfully"), category="success")
+    flash(_("Comment activated successfully."), category="success")
     return redirect(url_for('.list', id=comment.post.id if back_to_post == "ok" else None))
 
 @bp.route('/deactive_comment/<int:id>')
@@ -59,5 +59,5 @@ def deactive_comment(id):
     db.session.add(comment)
     db.session.commit()
     
-    flash(_("Comment deacivated successfully"), category="success")
+    flash(_("Comment deactivated successfully."), category="success")
     return redirect(url_for('.list', id=comment.post.id if back_to_post == "ok" else None))   

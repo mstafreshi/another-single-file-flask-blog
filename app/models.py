@@ -78,7 +78,7 @@ posts_tags = db.Table('posts_tags',
 class Tag(db.Model):
     __tablename__ = 'tags'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100))
+    name = db.Column(db.String(100), unique=True,index=True)
     posts = db.relationship('Post', secondary=posts_tags, backref=db.backref('tags', lazy='dynamic'), lazy='dynamic')
     
 class Post(db.Model):
@@ -87,7 +87,7 @@ class Post(db.Model):
     title = db.Column(db.String(100), nullable=False)
     slug = db.Column(db.String(255))
     lang_code = db.Column(db.String(2))
-    resume = db.Column(db.String(500), nullable=False)
+    resume = db.Column(db.Text, nullable=False)
     body = db.Column(db.Text, nullable=False)
     body_html = db.Column(db.Text)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False, index=True)

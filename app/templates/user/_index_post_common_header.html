@@ -1,6 +1,6 @@
             <div class="row">
                 <div class="col-12">
-                    <p dir="auto" class="h5 mb-4">                
+                    <p dir="auto" class="h4 mb-4">                
                             <a href="{{ url_for('user.index.post', lang_code=post.lang_code, slug=post.slug) }}">
                                 {{ post.title }}
                             </a>
@@ -23,11 +23,11 @@
                                 {{ _('under') }}
                             {% endif %}
                             
-                            <span class="badge bg-primary">{{ tag.name }}</span>
+                            <a href="{{ url_for('user.index.tag', lang_code=g.lang_code, tag=tag.name) }}"><span class="badge bg-primary">{{ tag.name }}</span></a>
                         {% endfor %} 
                         
                         {% if current_user.is_administrator() %}
-                            <a href="{{ url_for('admin.posts.post', id=post.id) }}"><span class="badge bg-primary">Edit</span></a>
+                            <a href="{{ url_for('admin.posts.post', id=post.id) }}"><span class="badge bg-primary">{{ _('Edit') }}</span></a>
                         {% endif %}          
                     </p>
                 </div>

@@ -2,45 +2,63 @@
 
 {% block content %}
 
-    <div class="row">
-        <div class="col-2"><img src="{{ user.avatar(128) }}"></div>
-        <div class="col-9"> 
+    <div class="row profile">
+        <div class="col-2"><img src="{{ user.avatar(128) }}" class="img-fluid"></div>
+        <div class="col-10"> 
             <div class="row">
-                <div class="col-3  align-self-end"> <h3> {{ user.name }} </h3> </div>                
-                <div class="col-9  text-start align-self-center ">
+                <div class="col-md-3  align-self-end"> <h3> {{ user.name }} </h3> </div>                
+                <div class="col-md-9  align-self-center ">
                     {% if current_user == user %} 
                         <a class="btn btn-outline-primary btn-sm" href="{{ url_for('user.index.edit_profile', lang_code=g.lang_code, username=user.username) }}">{{ _('Edit profile') }}</a> 
+                    {% endif %}
+                    
+                    {% if current_user.is_administrator() %} 
+                        <a class="btn btn-outline-danger btn-sm" href="{{ url_for('admin.users.edit', id=user.id) }}">{{ _('Edit profile as Admin') }}</a> 
                     {% endif %}
                 </div>            
             
                 <div  class="col-12">              
-                    <p> {{ user.about }} </p>
+                    <p> {{ user.about or ""}} </p>
                     
                     <p class="pt-2">
                     {% if user.instagram %}
-                        <img src="{{ url_for('static', filename="icons/instagram.png") }}" alt="Instagram" width="32" height="32">
+                        <a href="https://www.instagram.com/{{ user.instagram }}"><img src="{{ url_for('static', filename="icons/instagram.png") }}" alt="Instagram" width="32" height="32"></a>
                     {% endif %}
                     
                     {% if user.twitter %}
-                        <img src="{{ url_for('static', filename="icons/twitter.png") }}" alt="Twitter" width="32" height="32">
+                        <a href="https://www.twitetr.com/{{ user.twitter }}"><img src="{{ url_for('static', filename="icons/twitter.png") }}" alt="Twitter" width="32" height="32"></a>
                     {% endif %}
                     
                     {% if user.facebook %}
-                        <img src="{{ url_for('static', filename="icons/facebook.png") }}" alt="Facebook" width="32" height="32">
+                        <a href="https://www.facebook.com/{{ user.facebook }}"><img src="{{ url_for('static', filename="icons/facebook.png") }}" alt="Facebook" width="32" height="32"></a>
                     {% endif %}
                     
                     {% if user.github %}
-                        <img src="{{ url_for('static', filename="icons/github.png") }}" alt="Github" width="32" height="32">
+                        <a href="https://www.github.com/{{ user.github }}"><img src="{{ url_for('static', filename="icons/github.png") }}" alt="Github" width="32" height="32"></a>
                     {% endif %}
                     
                     {% if user.youtube %}
-                        <img src="{{ url_for('static', filename="icons/youtube.png") }}" alt="Youtube" width="32" height="32">
+                        <a href="https://www.youtube.com/{{ user.youtube }}"><img src="{{ url_for('static', filename="icons/youtube.png") }}" alt="Youtube" width="32" height="32"></a>
                     {% endif %}
                     </p>
-                    
-                    {% if user.posts.count() %}
-                        {% for post in user.posts.all() %}
-                            <a href="{{ url_for('user.index.post', lang_code=post.lang_code, slug=slug) }}">{{post.title }}</a> <br>
+                </div>
+                
+                <div class="col-md-6 mt-3">
+                    <h5 class="border-bottom pb-2"> {{ _("Latest posts") }}</h5>
+                    {% set posts = user.posts.filter_by(active=True).order_by(Post.id.desc()).limit(10) %}
+                    {% if posts %}
+                        {% for post in posts %}
+                            <a href="{{ url_for('user.index.post', lang_code=post.lang_code, slug=post.slug) }}">{{post.title }}</a> <br>
+                        {% endfor %}
+                    {% endif %}          
+                </div>
+                
+                <div class="col-md-6 mt-3">
+                    <h5 class="border-bottom pb-2"> {{ _("Latest comments") }}</h5>
+                    {% set comments = user.comments.filter_by(active=True).order_by(Comment.id.desc()).limit(10) %}
+                    {% if comments %}
+                        {% for comment in comments %}
+                            <a href="{{ url_for('user.index.post', lang_code=comment.post.lang_code, slug=comment.post.slug, _anchor=comment.id) }}">{{ comment.comment }}</a> <br>
                         {% endfor %}
                     {% endif %}          
                 </div>

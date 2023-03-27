@@ -12,7 +12,7 @@ def list():
     navigation = [
         {'text': _('Add category'), 'link': url_for('.category')}    
     ]
-    data = dict(title=_("Linkdump categories"), categories=categories, navigation=navigation)
+    data = dict(title=_("Categories list"), categories=categories, navigation=navigation)
     return render_template('admin/linkdump_categories/list.html', **data)
  
 @bp.route("/category/<int:id>", methods=["GET", "POST"])   
@@ -40,7 +40,7 @@ def category(id):
         )
         
     navigation.append(       
-        {'text': _('Category list'), 'link': url_for('.list')}    
+        {'text': _('Categories list'), 'link': url_for('.list')}    
     )
     
     if category.id is None:
