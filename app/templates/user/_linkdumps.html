@@ -2,7 +2,7 @@
     {% if loop.first %} <div class="row border-top pt-3 rtl"> {% endif %} 
         
     {% if category.links.count() %}        
-        <div class="col-4">
+        <div class="col-md-4 mb-3">
             {{ category.name }} <br>
             {% for link in category.links.all() %}
                 <a href="{{ link. link }}">{{ link.text }}</a> <br>

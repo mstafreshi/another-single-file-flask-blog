@@ -52,7 +52,7 @@
     
     
     {% if post.get_comment %}
-    <div class="row">
+    <div class="row" dir="auto">
         <div class="col-12">
             <p class="mt-5 text-secondary" id="comment_form"> {{ _('Leave a comment') }} </p>   
             {% from 'bootstrap5/form.html' import render_field %}
@@ -60,8 +60,8 @@
         </div>
     </div>           
     
-    <form method="post" action="" class="form" role="form"> {{ comment_form.hidden_tag() }}
-    <div class="row">
+    <form method="post" action="" class="form mb-3" role="form"> {{ comment_form.hidden_tag() }}
+    <div class="row" dir="auto">
         {% if not current_user.is_authenticated %}
             <div class="col-6">                
                 {{ render_field(comment_form.name) }}

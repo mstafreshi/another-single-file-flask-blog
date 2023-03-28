@@ -3,8 +3,8 @@
 {% block content %}
 
     <div class="row profile">
-        <div class="col-2"><img src="{{ user.avatar(128) }}" class="img-fluid"></div>
-        <div class="col-10"> 
+        <div class="col-md-2 mb-3"><img src="{{ user.avatar(128) }}" class="img-fluid"></div>
+        <div class="col-md-10"> 
             <div class="row">
                 <div class="col-md-3  align-self-end"> <h3> {{ user.name }} </h3> </div>                
                 <div class="col-md-9  align-self-center ">
@@ -53,7 +53,7 @@
                     {% endif %}          
                 </div>
                 
-                <div class="col-md-6 mt-3">
+                <div class="col-md-6 mt-3 mb-3">
                     <h5 class="border-bottom pb-2"> {{ _("Latest comments") }}</h5>
                     {% set comments = user.comments.filter_by(active=True).order_by(Comment.id.desc()).limit(10) %}
                     {% if comments %}

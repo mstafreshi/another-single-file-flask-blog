@@ -7,6 +7,7 @@ from ....models import Post, Comment, User, LinkdumpCategory, Tag
 from .forms import CommentForm
 from ...admin.users.forms import EditForm as UserProfileForm
 from .... import db
+import urllib.parse
 
 # lang_code view arg is now in g.lang_code
 
@@ -30,6 +31,9 @@ def index(lang_code, page):
 @bp.route('/<lang_code>/tag/<tag>', defaults={'page':1})
 @bp.route('/<lang_code>/tag/<tag>/<int:page>')
 def tag(lang_code, tag, page):
+    # in development server is not necessary but in deploy yes
+    # Must change
+    tag = urllib.parse.unquote(tag)
     tag_object = Tag.query.filter_by(name=tag).first_or_404()
     pagination = tag_object.posts.filter_by(lang_code=g.lang_code, \
         show_in_list=True,active=True)\
