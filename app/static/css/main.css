@@ -9,3 +9,19 @@ a {
 a:hover {
   color: #000;
 }
+
+#flask-pagedown-body {
+    min-height: 250px
+}
+
+#flask-pagedown-body-preview {
+    margin-top:5px;
+    padding:5px;
+    border-style:solid;
+    border-color:silver;
+    border-width:0 0px 0 3px;
+}
+
+.post-info-line {
+    font-size: 14px
+}

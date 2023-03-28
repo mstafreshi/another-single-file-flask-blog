@@ -2,6 +2,8 @@
 <html lang="{{ g.lang_code }}">
     <head>
         <title> {% block title %} {{ config.get('PROJECT_NAME') }} - {{ title }} {% endblock %} </title>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Language" content="{{ g.lang_code }}" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="{{ url_for('static', filename='icons/favicon.png') }}"/>        
         {%- block styles %}            
@@ -114,10 +116,10 @@
                         <div class="card-body">
                             {% for author_ in authors.all() %}
                            	<div class="row rtl">
-                            	<div class="col-7 text-start">
+                            	<div class="col-7 align-self-start">
                                 <a class="{% if author_ == author %}active{% endif %} mb-1 btn btn-outline-primary btn-sm" href="{{ url_for('user.index.author', lang_code=g.lang_code, username=author_.username) }}">{{ author_.name }} <b>{{ author_.posts.count() }}</b></a> 
 								</div>
-								<div class="col-5 text-end">                                
+								<div class="col-5 d-flex justify-content-end">                                
                                 <a  class="btn btn-outline-primary btn-sm {% if request.endpoint == 'user.index.profile' and user == author_ %} active {% endif %}" href="{{ url_for('user.index.profile', lang_code=g.lang_code, username=author_.username) }}">{{ _('Profile') }}</a>
                                 </div>
                            	</div>
