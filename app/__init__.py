@@ -3,7 +3,6 @@ from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, current_user
 from flask_babel import Babel, lazy_gettext as _l
-from flask_pagedown import PageDown
 from .config import config
 
 bootstrap = Bootstrap5()
@@ -17,8 +16,6 @@ login_manager.login_message_category = 'danger'
 # @login_manager.unauthorized_handler. Therefore we do'nt no need to this.
 #login_manager.login_view = 'user.auth.login'
 
-pagedown = PageDown()
-
 def get_locale():
     return g.lang_code
        
@@ -30,7 +27,6 @@ def create_app(config_name='default'):
     db.init_app(app)
     login_manager.init_app(app)
     babel.init_app(app, locale_selector=get_locale)
-    pagedown.init_app(app)
     
     from .blueprints.user import user
     from .blueprints.admin import admin

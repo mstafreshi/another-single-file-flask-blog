@@ -5,7 +5,7 @@
     {% include('user/_index_post_common_header.html') %}
         
     <div class="row">
-        <div class="col-12" dir="auto">
+        <div class="col-12 markdown-body" dir="auto">
             {% if post.body_html %}
                 {{ post.body_html | safe }}
             {% else %}
@@ -15,14 +15,14 @@
     </div>
     
     <div class="row"  id="comments">
-        <div class="col-12 text-end">
-            <button class="btn btn-outline-primary"> <a href="#comments">{{ post.comments.filter_by(active=True).count() }} {{ _('Comments') }} </a> </button>        
+        <div class="col-12 text-end mt-5">
+            <a class="btn btn-outline-primary" href="#comments">{{ post.comments.filter_by(active=True).count() }} {{ _('Comments') }} </a>
         </div>    
     </div>   
      
     {% for comment in post.comments.filter_by(parent_id = None) if comment.active recursive %}
         {% if loop.depth == 1 and loop.first %} <div class="row" dir="auto"> {% endif %} 
-            <div  class="mt-2 col-{{ 12 - loop.depth0 }} offset-{{ loop.depth0 }}">
+            <div  class="col-{{ 12 - loop.depth0 }} offset-{{ loop.depth0 }}">
                 <div class="row">
                     <div class="col-1">
                     <img class="img-fluid" src="{{ comment.avatar(128) }}">
@@ -98,3 +98,10 @@
     }
     </script>
 {% endblock %}
+
+{% block styles %}    
+    <link href="{{ url_for('static', filename='css/github-markdown-light.css') }}" type="text/css" rel="stylesheet" >             
+    <link href="{{ url_for('static', filename='css/codehilite.css') }}" type="text/css" rel="stylesheet" >             
+    {{ super() }}
+{% endblock %}
+

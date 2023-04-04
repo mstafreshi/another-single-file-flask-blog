@@ -10,18 +10,25 @@ a:hover {
   color: #000;
 }
 
-#flask-pagedown-body {
+form #body {
     min-height: 250px
 }
 
+/*
 #flask-pagedown-body-preview {
     margin-top:5px;
-    padding:5px;
+    padding:10px;
     border-style:solid;
-    border-color:silver;
-    border-width:0 0px 0 3px;
+    border-color:red;
+    border-width:1px;
 }
+*/
 
 .post-info-line {
     font-size: 14px
+}
+
+.codehilite {
+    text-align:left;
+    direction:ltr;
 }

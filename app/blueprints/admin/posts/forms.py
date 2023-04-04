@@ -2,7 +2,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField, BooleanField, SelectField
 from wtforms.validators import DataRequired, Length, ValidationError
 from flask_babel import lazy_gettext as _l
-from flask_pagedown.fields import PageDownField
 from flask import current_app
 
 class PostForm(FlaskForm):
@@ -13,7 +12,7 @@ class PostForm(FlaskForm):
     get_comment = BooleanField(_l("Get comment"))
     lang_code = SelectField(_l("Language"), validators=[DataRequired()])
     resume = TextAreaField(_l("Resume"), validators=[DataRequired()])
-    body = PageDownField(_l("Body"), validators=[DataRequired()], \
+    body = TextAreaField(_l("Body"), validators=[DataRequired()], \
         description=_l("Some markdown tags are enabled"))        
     tags = StringField(_l("Tags"))
     submit = SubmitField(_l("Submit"))
@@ -25,3 +24,4 @@ class PostForm(FlaskForm):
     def validate_lang_code(self, field):
         if field.data not in current_app.config.get('LANG_CODES'):
             raise ValidationError()
+                        

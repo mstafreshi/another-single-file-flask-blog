@@ -58,7 +58,7 @@ def post(lang_code, slug):
     # in development server is not necessary but in deploy yes
     # Must change
     slug = urllib.parse.unquote(slug)
-    post = Post.query.filter_by(lang_code=g.lang_code, slug=slug).first_or_404(id)   
+    post = Post.query.filter_by(lang_code=g.lang_code, slug=slug).first_or_404(id)
     if not post.active:
         abort(404)     
     comment_form = CommentForm()
