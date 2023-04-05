@@ -96,7 +96,9 @@ def profile(lang_code, username):
     user = User.query.filter_by(username=username, active=True).first_or_404()
     # todo: I pass Post and Comment Class to template just for 
     # use them in order_by method!
-    return render_template('user/index/profile.html', user=user, Post=Post, Comment=Comment)
+    title = _("Profile")
+    return render_template('user/index/profile.html', title=title, user=user,\
+        Post=Post, Comment=Comment)
 
 @bp.route("/<lang_code>/edit_profile/<username>", methods=["GET", "POST"])
 @login_required

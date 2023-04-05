@@ -17,8 +17,12 @@
                     {% endif %}
                 </div>            
             
-                <div  class="col-12">              
-                    <p> {{ user.about or ""}} </p>
+                <div  class="col-12 about">
+                    {% if user.about_html %}
+                        {{ user.about_html | safe }}
+                    {% else %}
+                        {{ user.about or "" }}
+                    {% endif %}
                     
                     <p class="pt-2">
                     {% if user.instagram %}

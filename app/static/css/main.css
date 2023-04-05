@@ -41,3 +41,13 @@ form #body {
     font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
     font-size: .8em
 }
+
+
+.about p:first-child {
+    margin-top:10px
+}
+
+.about p {
+    unicode-bidi: plaintext;
+    text-align:start
+}

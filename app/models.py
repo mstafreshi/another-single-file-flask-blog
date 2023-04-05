@@ -32,7 +32,8 @@ class User(UserMixin, db.Model):
     github = db.Column(db.String(64))
     youtube = db.Column(db.String(64)) 
     image = db.Column(db.String(128))
-    about = db.Column(db.String(500))
+    about = db.Column(db.Text)
+    about_html = db.Column(db.Text)
     active = db.Column(db.Boolean, default=True)
     lang_code = db.Column(db.String(2))
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
@@ -41,6 +42,19 @@ class User(UserMixin, db.Model):
     linkdump_categories = db.relationship('LinkdumpCategory', backref='creator', lazy='dynamic')
     linkdumps = db.relationship('Linkdump', backref='creator', lazy='dynamic')
     
+    @staticmethod
+    def on_changed_about(target, value, oldvalue, initiator):
+        target.about_html = markdown(value, output_format='html', 
+            extensions=[
+                'pymdownx.emoji',
+                'pymdownx.mark',
+                'extra', 
+                'codehilite', 
+                'admonition', 
+                'toc'
+            ]
+        )
+        
     def avatar(self, size):
         if self.image:
             return self.image
@@ -173,7 +187,8 @@ class Permission:
     ADMINISTRATOR = 0x8000
     
 db.event.listen(Post.body, 'set', Post.on_changed_body)
-    
+db.event.listen(User.about, 'set', User.on_changed_about)
+   
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
