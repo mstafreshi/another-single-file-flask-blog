@@ -101,6 +101,7 @@ class Post(db.Model):
     slug = db.Column(db.String(255))
     lang_code = db.Column(db.String(2))
     resume = db.Column(db.Text, nullable=False)
+    resume_html = db.Column(db.Text)
     body = db.Column(db.Text, nullable=False)
     body_html = db.Column(db.Text)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False, index=True)
@@ -112,8 +113,8 @@ class Post(db.Model):
     comments = db.relationship('Comment', backref='post', lazy='dynamic')
     
     @staticmethod
-    def on_changed_body(target, value, oldvalue, initiator):
-        target.body_html = markdown(value, output_format='html', 
+    def on_changed_body_or_resume(target, value, oldvalue, initiator):
+        md = markdown(value, output_format='html', 
             extensions=[
                 'pymdownx.emoji',
                 'pymdownx.mark',
@@ -123,6 +124,11 @@ class Post(db.Model):
                 'toc'
             ]
         )
+        
+        if initiator.key == 'body':
+            target.body_html = md
+        elif initiator.key == 'resume':
+            target.resume_html = md            
                                
 class Comment(db.Model):
     __tablename__ = "comments"
@@ -186,7 +192,8 @@ class Role(db.Model):
 class Permission:
     ADMINISTRATOR = 0x8000
     
-db.event.listen(Post.body, 'set', Post.on_changed_body)
+db.event.listen(Post.body, 'set', Post.on_changed_body_or_resume)
+db.event.listen(Post.resume, 'set', Post.on_changed_body_or_resume)
 db.event.listen(User.about, 'set', User.on_changed_about)
    
 @login_manager.user_loader

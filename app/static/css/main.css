@@ -10,7 +10,7 @@ a:hover {
   color: #000;
 }
 
-form #body {
+form #body, form #resume {
     min-height: 250px
 }
 
@@ -25,7 +25,7 @@ form #body {
 */
 
 .post-info-line {
-    font-size: 14px
+    font-size: 1em
 }
 
 .codehilite {
@@ -47,6 +47,15 @@ form #body {
     margin-top:10px
 }
 
+.markdown-body,
+.markdown-body p,
+.markdown-body div,
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body,
 .about p {
     unicode-bidi: plaintext;
     text-align:start

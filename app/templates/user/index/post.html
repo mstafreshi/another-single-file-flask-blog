@@ -5,7 +5,7 @@
     {% include('user/_index_post_common_header.html') %}
         
     <div class="row">
-        <div class="col-12 markdown-body" dir="auto">
+        <div class="col-12 markdown-body">
             {% if post.body_html %}
                 {{ post.body_html | safe }}
             {% else %}
@@ -16,7 +16,7 @@
     
     <div class="row"  id="comments">
         <div class="col-12 text-end mt-5">
-            <a class="btn btn-outline-primary" href="#comments">{{ post.comments.filter_by(active=True).count() }} {{ _('Comments') }} </a>
+            <a class="btn btn-outline-primary btn-sm" href="#comments">{{ post.comments.filter_by(active=True).count() }} {{ _('Comments') }} </a>
         </div>    
     </div>   
      

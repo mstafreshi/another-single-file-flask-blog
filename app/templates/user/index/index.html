@@ -12,27 +12,27 @@
     {% endif %}
     
     {% for post in posts %}
-        <div>
+        <div class="mb-3 {% if not loop.last %}border-bottom{% endif %}">
             
             {% include('user/_index_post_common_header.html') %}
             
             <div class="row">     
-                <div class="col-12">               
-                    <p dir="auto">
-                        {{ post.resume }} 
-                    </p>
+                <div class="col-12 markdown-body">               
+                        {% if post.resume_html %}
+                            {{ post.resume_html | safe }}
+                        {% else %}
+                            {{ post.resume }}
+                        {% endif %}                            
                 </div>
             </div>    
           
-            <div class="row mb-5"> 
-                <div class="col-6 align-self-center">
-                    <a href="{{ url_for('.post', lang_code=post.lang_code, slug=post.slug) }}">{{ _('Continue reading this post') }}</a>
-                </div>
-                
-                <div class="col-6 text-end">
-                    <a href="{{ url_for('.post', lang_code=post.lang_code, slug=post.slug, _anchor='comments') }}" class="btn btn-sm btn-outline-primary">{{ post.comments.filter_by(active=True).count() }} {{ _('comments') }}</a>                
-                </div>  
-                         
+            <div class="row mt-4 mb-3"> 
+                <div class="col text-end">
+                    <div class="btn-group">                    
+                        <a href="{{ url_for('.post', lang_code=post.lang_code, slug=post.slug) }}" class="btn btn-outline-danger btn-sm">{{ _('Continue reading this post') }}</a>
+                        <a href="{{ url_for('.post', lang_code=post.lang_code, slug=post.slug, _anchor='comments') }}" class="btn btn-sm btn-outline-primary">{{ post.comments.filter_by(active=True).count() }} {{ _('comments') }}</a>                
+                    </div>                        
+                </div>                           
             </div>
             
                                                   
