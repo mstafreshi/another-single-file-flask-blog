@@ -5,7 +5,7 @@
     {% include('user/_index_post_common_header.html') %}
         
     <div class="row">
-        <div class="col-12 markdown-body">
+        <div class="col-12 markdown-body" dir="auto">
             {% if post.body_html %}
                 {{ post.body_html | safe }}
             {% else %}

@@ -80,9 +80,11 @@
 
         <br>
         
+        {% set has_side_bar = request.blueprint == 'user.index' and ( tags.count() or authors.count() ) %}
+        
          <div class="container">
             <div class="row">
-                <div class="col-lg-9" id="main-content">
+                <div class="col-lg-{%if has_side_bar%}9{%else%}12{%endif%}" id="main-content">
                     {% for category, msg in get_flashed_messages(with_categories=True) %}
                         <div class="alert alert-{{ category }}">
                             {{ msg }}
@@ -107,7 +109,7 @@
                     </div>        
                 </div>
                 
-                {% if request.blueprint == 'user.index' and ( tags.count() or authors.count() )%}
+                {% if has_side_bar %}
                 <div class="col-lg-3" id="side-bar">
                 
                     <div class="card mb-3">

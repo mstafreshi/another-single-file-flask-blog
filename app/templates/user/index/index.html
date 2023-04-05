@@ -17,7 +17,7 @@
             {% include('user/_index_post_common_header.html') %}
             
             <div class="row">     
-                <div class="col-12 markdown-body">               
+                <div class="col-12 markdown-body" dir="auto">               
                         {% if post.resume_html %}
                             {{ post.resume_html | safe }}
                         {% else %}
