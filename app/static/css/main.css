@@ -32,3 +32,12 @@ form #body {
     text-align:left;
     direction:ltr;
 }
+
+
+.codehilite .filename {
+    background-color: #d8e3eb;
+    padding: 5px 0 5px 15px;
+    display: flex;
+    font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+    font-size: .8em
+}

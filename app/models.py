@@ -102,6 +102,7 @@ class Post(db.Model):
         target.body_html = markdown(value, output_format='html', 
             extensions=[
                 'pymdownx.emoji',
+                'pymdownx.mark',
                 'extra', 
                 'codehilite', 
                 'admonition', 
