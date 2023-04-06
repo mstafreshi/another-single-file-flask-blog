@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-03-27 22:17+0330\n"
-"PO-Revision-Date: 2023-03-27 22:17+0330\n"
+"POT-Creation-Date: 2023-04-06 16:19+0330\n"
+"PO-Revision-Date: 2023-04-06 16:22+0330\n"
 "Last-Translator: \n"
 "Language-Team: es <LL@li.org>\n"
 "Language: es\n"
@@ -19,9 +19,13 @@ msgstr ""
 "Generated-By: Babel 2.12.1\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: app/__init__.py:14
+#: app/__init__.py:13
 msgid "For access to this page, please login."
 msgstr "Si necesitas acceder a esta página, por favor entre."
+
+#: app/models.py:126
+msgid "Table of contents"
+msgstr "Tabla de contenidos"
 
 #: app/blueprints/admin/comments/views.py:16
 msgid "No approved comments"
@@ -52,19 +56,19 @@ msgstr "El comentario fue desactivado."
 #: app/blueprints/admin/users/forms.py:8 app/blueprints/user/auth/forms.py:14
 #: app/blueprints/user/index/forms.py:7
 #: app/templates/admin/linkdump_categories/list.html:8
-#: app/templates/admin/users/list.html:9
+#: app/templates/admin/users/list.html:10
 msgid "Name"
 msgstr "Nombre"
 
 #: app/blueprints/admin/linkdump_categories/forms.py:9
-#: app/blueprints/admin/posts/forms.py:14
+#: app/blueprints/admin/posts/forms.py:13
 #: app/blueprints/admin/users/forms.py:18
 msgid "Language"
 msgstr "Lenguaje"
 
 #: app/blueprints/admin/linkdump_categories/forms.py:10
 #: app/blueprints/admin/linkdumps/forms.py:11
-#: app/blueprints/admin/posts/forms.py:19 app/blueprints/user/index/forms.py:10
+#: app/blueprints/admin/posts/forms.py:18 app/blueprints/user/index/forms.py:10
 msgid "Submit"
 msgstr "Enviar"
 
@@ -140,43 +144,43 @@ msgstr "Editar enlace"
 msgid "Link deleted successfully."
 msgstr "El enlace fue eliminado."
 
-#: app/blueprints/admin/posts/forms.py:9
+#: app/blueprints/admin/posts/forms.py:8
 msgid "Slug"
 msgstr "Slug"
 
-#: app/blueprints/admin/posts/forms.py:10
+#: app/blueprints/admin/posts/forms.py:9
 #: app/templates/admin/linkdumps/list.html:12
 #: app/templates/admin/posts/list.html:11
 msgid "Title"
 msgstr "Titulo"
 
-#: app/blueprints/admin/posts/forms.py:11
+#: app/blueprints/admin/posts/forms.py:10
 #: app/blueprints/admin/users/forms.py:20 app/templates/_macros.html:2
 #: app/templates/admin/comments/list.html:27
 msgid "Active"
 msgstr "Activado"
 
-#: app/blueprints/admin/posts/forms.py:12
+#: app/blueprints/admin/posts/forms.py:11
 msgid "Show in list?"
 msgstr "¿Mostrar en la lista?"
 
-#: app/blueprints/admin/posts/forms.py:13
+#: app/blueprints/admin/posts/forms.py:12
 msgid "Get comment"
 msgstr "Aceptar comentarios"
 
-#: app/blueprints/admin/posts/forms.py:15
+#: app/blueprints/admin/posts/forms.py:14
 msgid "Resume"
 msgstr "Un breve del texto"
 
-#: app/blueprints/admin/posts/forms.py:16
+#: app/blueprints/admin/posts/forms.py:15
 msgid "Body"
 msgstr "Cuerpo"
 
-#: app/blueprints/admin/posts/forms.py:17
+#: app/blueprints/admin/posts/forms.py:16
 msgid "Some markdown tags are enabled"
 msgstr "Unos markdown tags son aceptados"
 
-#: app/blueprints/admin/posts/forms.py:18 app/templates/base.html:128
+#: app/blueprints/admin/posts/forms.py:17 app/templates/base.html:132
 msgid "Tags"
 msgstr "Tags"
 
@@ -197,7 +201,7 @@ msgstr "La entrada  fue añadida/editada."
 msgid "View post"
 msgstr "Ver la entrada"
 
-#: app/blueprints/admin/posts/views.py:70 app/templates/base.html:40
+#: app/blueprints/admin/posts/views.py:70 app/templates/base.html:42
 #: app/templates/user/index/post.html:19
 msgid "Comments"
 msgstr "Comentarios"
@@ -207,7 +211,7 @@ msgid "Edit post"
 msgstr "Editar la entrada"
 
 #: app/blueprints/admin/users/forms.py:9 app/blueprints/user/auth/forms.py:15
-#: app/blueprints/user/index/forms.py:8 app/templates/admin/users/list.html:10
+#: app/blueprints/user/index/forms.py:8 app/templates/admin/users/list.html:11
 msgid "Email"
 msgstr "Email"
 
@@ -250,7 +254,7 @@ msgstr "El panel de admin va a presentar en este lenguaje"
 #: app/blueprints/admin/users/forms.py:21
 #: app/blueprints/admin/users/forms.py:47
 #: app/templates/admin/linkdumps/list.html:24
-#: app/templates/admin/users/list.html:27
+#: app/templates/admin/users/list.html:28
 #: app/templates/user/_index_post_common_header.html:30
 msgid "Edit"
 msgstr "Editar"
@@ -290,7 +294,7 @@ msgid "Edit password of"
 msgstr "Editar la contraseña de"
 
 #: app/blueprints/user/auth/forms.py:8 app/blueprints/user/auth/forms.py:16
-#: app/templates/admin/users/list.html:8
+#: app/templates/admin/users/list.html:9
 msgid "Username"
 msgstr "Usuario"
 
@@ -299,7 +303,7 @@ msgid "Remember me"
 msgstr "Acuérdate de mí"
 
 #: app/blueprints/user/auth/forms.py:11 app/blueprints/user/auth/views.py:29
-#: app/templates/base.html:56
+#: app/templates/base.html:58
 msgid "Login"
 msgstr "Entrar"
 
@@ -309,7 +313,7 @@ msgstr ""
 "El nombre de usuario solo debe tener letras, nombres, puntos y guiones bajos"
 
 #: app/blueprints/user/auth/forms.py:21 app/blueprints/user/auth/views.py:62
-#: app/templates/base.html:59
+#: app/templates/base.html:61
 msgid "Register"
 msgstr "Registrar"
 
@@ -349,23 +353,27 @@ msgstr "El accesso esta prohibido"
 msgid "comment"
 msgstr "comentario"
 
-#: app/blueprints/user/index/views.py:27
+#: app/blueprints/user/index/views.py:28
 msgid "Home"
 msgstr "Inicio"
 
-#: app/blueprints/user/index/views.py:48 app/templates/user/index/index.html:9
+#: app/blueprints/user/index/views.py:53 app/templates/user/index/index.html:9
 msgid "Posts of"
 msgstr "Las entradas de"
 
-#: app/blueprints/user/index/views.py:80
+#: app/blueprints/user/index/views.py:88
 msgid "Comment saved successfully"
 msgstr "El comentario fue registrado"
 
-#: app/blueprints/user/index/views.py:96
+#: app/blueprints/user/index/views.py:99 app/templates/base.html:124
+msgid "Profile"
+msgstr "Perfil"
+
+#: app/blueprints/user/index/views.py:106
 msgid "Edit Profile"
 msgstr "Editar el perfil"
 
-#: app/blueprints/user/index/views.py:117
+#: app/blueprints/user/index/views.py:127
 msgid "Profile saved seccessfully"
 msgstr "El perfil fue actualizado"
 
@@ -373,31 +381,27 @@ msgstr "El perfil fue actualizado"
 msgid "Inactive"
 msgstr "Inactivo"
 
-#: app/templates/base.html:36
+#: app/templates/base.html:38
 msgid "Posts"
 msgstr "Las entradas"
 
-#: app/templates/base.html:44
+#: app/templates/base.html:46
 msgid "Linkdumps"
 msgstr "Linkdumps"
 
-#: app/templates/base.html:48
+#: app/templates/base.html:50
 msgid "Users"
 msgstr "Lista de usuarios"
 
-#: app/templates/base.html:52
+#: app/templates/base.html:54
 msgid "Logout"
 msgstr "Salir"
 
-#: app/templates/base.html:112
+#: app/templates/base.html:116
 msgid "Authors"
 msgstr "Autores"
 
-#: app/templates/base.html:120
-msgid "Profile"
-msgstr "Perfil"
-
-#: app/templates/base.html:149
+#: app/templates/base.html:153
 msgid "All right reserved for"
 msgstr "Los derechos son preservados para"
 
@@ -421,15 +425,20 @@ msgstr "Deactivar"
 msgid "Links"
 msgstr "Enlaces"
 
-#: app/templates/admin/users/list.html:11
+#: app/templates/admin/posts/list.html:29
+#: app/templates/user/index/index.html:33
+msgid "comments"
+msgstr "comentarios"
+
+#: app/templates/admin/users/list.html:12
 msgid "Status"
 msgstr "Status"
 
-#: app/templates/admin/users/list.html:12
+#: app/templates/admin/users/list.html:13
 msgid "Created at"
 msgstr "Creado en"
 
-#: app/templates/admin/users/list.html:28
+#: app/templates/admin/users/list.html:29
 msgid "Edit password"
 msgstr "Editar contraseña"
 
@@ -453,13 +462,9 @@ msgstr "Un error interno ha ocurrido."
 msgid "Tag"
 msgstr "Tag"
 
-#: app/templates/user/index/index.html:29
+#: app/templates/user/index/index.html:32
 msgid "Continue reading this post"
 msgstr "Continuar leyendo la entrada"
-
-#: app/templates/user/index/index.html:33
-msgid "comments"
-msgstr "comentarios"
 
 #: app/templates/user/index/post.html:41
 msgid "Response"
@@ -477,11 +482,11 @@ msgstr "Editar perfil"
 msgid "Edit profile as Admin"
 msgstr "Editar perfil como Admin"
 
-#: app/templates/user/index/profile.html:47
+#: app/templates/user/index/profile.html:51
 msgid "Latest posts"
 msgstr "Las entradas más recientes"
 
-#: app/templates/user/index/profile.html:57
+#: app/templates/user/index/profile.html:61
 msgid "Latest comments"
 msgstr "Los comentarios más recientes"
 

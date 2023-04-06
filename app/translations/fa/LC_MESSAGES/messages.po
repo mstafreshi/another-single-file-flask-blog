@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-03-27 22:17+0330\n"
-"PO-Revision-Date: 2023-03-27 22:19+0330\n"
+"POT-Creation-Date: 2023-04-06 16:19+0330\n"
+"PO-Revision-Date: 2023-04-06 16:29+0330\n"
 "Last-Translator: \n"
 "Language-Team: fa <LL@li.org>\n"
 "Language: fa\n"
@@ -19,9 +19,13 @@ msgstr ""
 "Generated-By: Babel 2.12.1\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: app/__init__.py:14
+#: app/__init__.py:13
 msgid "For access to this page, please login."
 msgstr "برای دسترسی به این صفحه لطفا وارد سایت شوید."
+
+#: app/models.py:126
+msgid "Table of contents"
+msgstr "فهرست مطالب"
 
 #: app/blueprints/admin/comments/views.py:16
 msgid "No approved comments"
@@ -52,19 +56,19 @@ msgstr "کامنت با موفقیت غیر فعال شد."
 #: app/blueprints/admin/users/forms.py:8 app/blueprints/user/auth/forms.py:14
 #: app/blueprints/user/index/forms.py:7
 #: app/templates/admin/linkdump_categories/list.html:8
-#: app/templates/admin/users/list.html:9
+#: app/templates/admin/users/list.html:10
 msgid "Name"
 msgstr "نام"
 
 #: app/blueprints/admin/linkdump_categories/forms.py:9
-#: app/blueprints/admin/posts/forms.py:14
+#: app/blueprints/admin/posts/forms.py:13
 #: app/blueprints/admin/users/forms.py:18
 msgid "Language"
 msgstr "زبان"
 
 #: app/blueprints/admin/linkdump_categories/forms.py:10
 #: app/blueprints/admin/linkdumps/forms.py:11
-#: app/blueprints/admin/posts/forms.py:19 app/blueprints/user/index/forms.py:10
+#: app/blueprints/admin/posts/forms.py:18 app/blueprints/user/index/forms.py:10
 msgid "Submit"
 msgstr "ارسال"
 
@@ -140,43 +144,43 @@ msgstr "ویرایش لینک"
 msgid "Link deleted successfully."
 msgstr "لینک با موفقیت حذف شد."
 
-#: app/blueprints/admin/posts/forms.py:9
+#: app/blueprints/admin/posts/forms.py:8
 msgid "Slug"
 msgstr "اسلاگ"
 
-#: app/blueprints/admin/posts/forms.py:10
+#: app/blueprints/admin/posts/forms.py:9
 #: app/templates/admin/linkdumps/list.html:12
 #: app/templates/admin/posts/list.html:11
 msgid "Title"
 msgstr "عنوان"
 
-#: app/blueprints/admin/posts/forms.py:11
+#: app/blueprints/admin/posts/forms.py:10
 #: app/blueprints/admin/users/forms.py:20 app/templates/_macros.html:2
 #: app/templates/admin/comments/list.html:27
 msgid "Active"
 msgstr "فعال"
 
-#: app/blueprints/admin/posts/forms.py:12
+#: app/blueprints/admin/posts/forms.py:11
 msgid "Show in list?"
 msgstr "نمایش در لیست پست‌ها؟"
 
-#: app/blueprints/admin/posts/forms.py:13
+#: app/blueprints/admin/posts/forms.py:12
 msgid "Get comment"
 msgstr "کامنت فعال است"
 
-#: app/blueprints/admin/posts/forms.py:15
+#: app/blueprints/admin/posts/forms.py:14
 msgid "Resume"
 msgstr "خلاصه"
 
-#: app/blueprints/admin/posts/forms.py:16
+#: app/blueprints/admin/posts/forms.py:15
 msgid "Body"
 msgstr "بدنه"
 
-#: app/blueprints/admin/posts/forms.py:17
+#: app/blueprints/admin/posts/forms.py:16
 msgid "Some markdown tags are enabled"
 msgstr "تعداد محدودی تگ markdown فعال است"
 
-#: app/blueprints/admin/posts/forms.py:18 app/templates/base.html:128
+#: app/blueprints/admin/posts/forms.py:17 app/templates/base.html:132
 msgid "Tags"
 msgstr "تگ‌ها"
 
@@ -197,7 +201,7 @@ msgstr "پست با موفقیت ثبت/ویرایش شد."
 msgid "View post"
 msgstr "مشاهده پست"
 
-#: app/blueprints/admin/posts/views.py:70 app/templates/base.html:40
+#: app/blueprints/admin/posts/views.py:70 app/templates/base.html:42
 #: app/templates/user/index/post.html:19
 msgid "Comments"
 msgstr "کامنت‌(ها)"
@@ -207,7 +211,7 @@ msgid "Edit post"
 msgstr "ویرایش پست"
 
 #: app/blueprints/admin/users/forms.py:9 app/blueprints/user/auth/forms.py:15
-#: app/blueprints/user/index/forms.py:8 app/templates/admin/users/list.html:10
+#: app/blueprints/user/index/forms.py:8 app/templates/admin/users/list.html:11
 msgid "Email"
 msgstr "ایمیل"
 
@@ -250,7 +254,7 @@ msgstr "پنل ادمین به این زبان نمایش داده خواهد ش
 #: app/blueprints/admin/users/forms.py:21
 #: app/blueprints/admin/users/forms.py:47
 #: app/templates/admin/linkdumps/list.html:24
-#: app/templates/admin/users/list.html:27
+#: app/templates/admin/users/list.html:28
 #: app/templates/user/_index_post_common_header.html:30
 msgid "Edit"
 msgstr "ویرایش"
@@ -290,7 +294,7 @@ msgid "Edit password of"
 msgstr "ویرایش کلمه عبور"
 
 #: app/blueprints/user/auth/forms.py:8 app/blueprints/user/auth/forms.py:16
-#: app/templates/admin/users/list.html:8
+#: app/templates/admin/users/list.html:9
 msgid "Username"
 msgstr "نام کاربری"
 
@@ -299,7 +303,7 @@ msgid "Remember me"
 msgstr "من را به خاطر بسپار"
 
 #: app/blueprints/user/auth/forms.py:11 app/blueprints/user/auth/views.py:29
-#: app/templates/base.html:56
+#: app/templates/base.html:58
 msgid "Login"
 msgstr "ورود"
 
@@ -308,7 +312,7 @@ msgid "Uername must have only letters, numbers, dots or underscores"
 msgstr "نام کاربری باید فقط شامل حروف و اعداد لاتبن و نقطه و زیر خط باشد"
 
 #: app/blueprints/user/auth/forms.py:21 app/blueprints/user/auth/views.py:62
-#: app/templates/base.html:59
+#: app/templates/base.html:61
 msgid "Register"
 msgstr "ثبت‌نام"
 
@@ -348,23 +352,27 @@ msgstr "دسترسی به این قسمت منع شده است"
 msgid "comment"
 msgstr "کامنت‌"
 
-#: app/blueprints/user/index/views.py:27
+#: app/blueprints/user/index/views.py:28
 msgid "Home"
 msgstr "صفحه اول"
 
-#: app/blueprints/user/index/views.py:48 app/templates/user/index/index.html:9
+#: app/blueprints/user/index/views.py:53 app/templates/user/index/index.html:9
 msgid "Posts of"
 msgstr "لیست پست‌های"
 
-#: app/blueprints/user/index/views.py:80
+#: app/blueprints/user/index/views.py:88
 msgid "Comment saved successfully"
 msgstr "کامنت با موفقیت ثبت شد"
 
-#: app/blueprints/user/index/views.py:96
+#: app/blueprints/user/index/views.py:99 app/templates/base.html:124
+msgid "Profile"
+msgstr "پروفایل"
+
+#: app/blueprints/user/index/views.py:106
 msgid "Edit Profile"
 msgstr "ویرایش پروفایل"
 
-#: app/blueprints/user/index/views.py:117
+#: app/blueprints/user/index/views.py:127
 msgid "Profile saved seccessfully"
 msgstr "پروفایل با موفقیت ذخیره شد"
 
@@ -372,31 +380,27 @@ msgstr "پروفایل با موفقیت ذخیره شد"
 msgid "Inactive"
 msgstr "غیر فعال"
 
-#: app/templates/base.html:36
+#: app/templates/base.html:38
 msgid "Posts"
 msgstr "لیست پست‌ها"
 
-#: app/templates/base.html:44
+#: app/templates/base.html:46
 msgid "Linkdumps"
 msgstr "لینکدونی"
 
-#: app/templates/base.html:48
+#: app/templates/base.html:50
 msgid "Users"
 msgstr "لیست کاربران"
 
-#: app/templates/base.html:52
+#: app/templates/base.html:54
 msgid "Logout"
 msgstr "خروج"
 
-#: app/templates/base.html:112
+#: app/templates/base.html:116
 msgid "Authors"
 msgstr "نویسندگان"
 
-#: app/templates/base.html:120
-msgid "Profile"
-msgstr "پروفایل"
-
-#: app/templates/base.html:149
+#: app/templates/base.html:153
 msgid "All right reserved for"
 msgstr "تمامی حقوق محفوظ است برای"
 
@@ -420,15 +424,20 @@ msgstr "غیر فعال"
 msgid "Links"
 msgstr "لینک‌ها"
 
-#: app/templates/admin/users/list.html:11
+#: app/templates/admin/posts/list.html:29
+#: app/templates/user/index/index.html:33
+msgid "comments"
+msgstr "کامنت‌(ها)"
+
+#: app/templates/admin/users/list.html:12
 msgid "Status"
 msgstr "وضعیت"
 
-#: app/templates/admin/users/list.html:12
+#: app/templates/admin/users/list.html:13
 msgid "Created at"
 msgstr "ایجاد شده در"
 
-#: app/templates/admin/users/list.html:28
+#: app/templates/admin/users/list.html:29
 msgid "Edit password"
 msgstr "ویرایش کلمه عبور"
 
@@ -452,13 +461,9 @@ msgstr "خطایی در سرور رخ داده است."
 msgid "Tag"
 msgstr "تگ‌"
 
-#: app/templates/user/index/index.html:29
+#: app/templates/user/index/index.html:32
 msgid "Continue reading this post"
 msgstr "ادامه مطلب"
-
-#: app/templates/user/index/index.html:33
-msgid "comments"
-msgstr "کامنت‌(ها)"
 
 #: app/templates/user/index/post.html:41
 msgid "Response"
@@ -476,11 +481,11 @@ msgstr "ویرایش پروفایل"
 msgid "Edit profile as Admin"
 msgstr "ویرایش پروفایل به عنوان ادمین"
 
-#: app/templates/user/index/profile.html:47
+#: app/templates/user/index/profile.html:51
 msgid "Latest posts"
 msgstr "آخرین پست‌ها"
 
-#: app/templates/user/index/profile.html:57
+#: app/templates/user/index/profile.html:61
 msgid "Latest comments"
 msgstr "آخرین کامنت‌ها"
 
