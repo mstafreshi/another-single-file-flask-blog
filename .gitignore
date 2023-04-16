@@ -131,4 +131,5 @@ dmypy.json
 sqlite.db
 app.db
 export.sh
+app/static/posts
 *~
