@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+kbd {
+    font-feature-settings: "kern";
+    font-family: var(--md-code-font-family)
+}
+
+
+kbd {
+    color: var(--md-code-fg-color);
+    direction: ltr;
+    font-variant-ligatures: none
+}
+
+.keys kbd:after,.keys kbd:before {
+    -moz-osx-font-smoothing: initial;
+    -webkit-font-smoothing: initial;
+    color: inherit;
+    margin: 0;
+    position: relative
+}
+
+.keys span {
+    color: var(--md-default-fg-color--light);
+    padding: 0 .2em
+}
+
+.keys .key-alt:before,.keys .key-left-alt:before,.keys .key-right-alt:before {
+    content: "⎇";
+    padding-right: .4em
+}
+
+.keys .key-command:before,.keys .key-left-command:before,.keys .key-right-command:before {
+    content: "⌘";
+    padding-right: .4em
+}
+
+.keys .key-control:before,.keys .key-left-control:before,.keys .key-right-control:before {
+    content: "⌃";
+    padding-right: .4em
+}
+
+.keys .key-left-meta:before,.keys .key-meta:before,.keys .key-right-meta:before {
+    content: "◆";
+    padding-right: .4em
+}
+
+.keys .key-left-option:before,.keys .key-option:before,.keys .key-right-option:before {
+    content: "⌥";
+    padding-right: .4em
+}
+
+.keys .key-left-shift:before,.keys .key-right-shift:before,.keys .key-shift:before {
+    content: "⇧";
+    padding-right: .4em
+}
+
+.keys .key-left-super:before,.keys .key-right-super:before,.keys .key-super:before {
+    content: "❖";
+    padding-right: .4em
+}
+
+.keys .key-left-windows:before,.keys .key-right-windows:before,.keys .key-windows:before {
+    content: "⊞";
+    padding-right: .4em
+}
+
+.keys .key-arrow-down:before {
+    content: "↓";
+    padding-right: .4em
+}
+
+.keys .key-arrow-left:before {
+    content: "←";
+    padding-right: .4em
+}
+
+.keys .key-arrow-right:before {
+    content: "→";
+    padding-right: .4em
+}
+
+.keys .key-arrow-up:before {
+    content: "↑";
+    padding-right: .4em
+}
+
+.keys .key-backspace:before {
+    content: "⌫";
+    padding-right: .4em
+}
+
+.keys .key-backtab:before {
+    content: "⇤";
+    padding-right: .4em
+}
+
+.keys .key-caps-lock:before {
+    content: "⇪";
+    padding-right: .4em
+}
+
+.keys .key-clear:before {
+    content: "⌧";
+    padding-right: .4em
+}
+
+.keys .key-context-menu:before {
+    content: "☰";
+    padding-right: .4em
+}
+
+.keys .key-delete:before {
+    content: "⌦";
+    padding-right: .4em
+}
+
+.keys .key-eject:before {
+    content: "⏏";
+    padding-right: .4em
+}
+
+.keys .key-end:before {
+    content: "⤓";
+    padding-right: .4em
+}
+
+.keys .key-escape:before {
+    content: "⎋";
+    padding-right: .4em
+}
+
+.keys .key-home:before {
+    content: "⤒";
+    padding-right: .4em
+}
+
+.keys .key-insert:before {
+    content: "⎀";
+    padding-right: .4em
+}
+
+.keys .key-page-down:before {
+    content: "⇟";
+    padding-right: .4em
+}
+
+.keys .key-page-up:before {
+    content: "⇞";
+    padding-right: .4em
+}
+
+.keys .key-print-screen:before {
+    content: "⎙";
+    padding-right: .4em
+}
+
+.keys .key-tab:after {
+    content: "⇥";
+    padding-left: .4em
+}
+
+.keys .key-num-enter:after {
+    content: "⌤";
+    padding-left: .4em
+}
+
+.keys .key-enter:after {
+    content: "⏎";
+    padding-left: .4em
+}

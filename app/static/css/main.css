@@ -42,3 +42,10 @@ form #body, form #resume {
     font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
     font-size: .8em
 }
+
+
+.markdown-body img, .markdown-body video {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

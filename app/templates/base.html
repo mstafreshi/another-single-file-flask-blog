@@ -114,15 +114,11 @@
                 
                     <div class="card mb-3">
                         <div class="card-header">{{ _("Authors") }}</div>
-                        <div class="card-body">
-                            {% for author_ in authors.all() %}
-                           	<div class="row rtl">
-                            	<div class="col-7 align-self-start">
-                                <a class="{% if author_ == author %}active{% endif %} mb-1 btn btn-outline-primary btn-sm" href="{{ url_for('user.index.author', lang_code=g.lang_code, username=author_.username) }}">{{ author_.name }} <b>{{ author_.posts.count() }}</b></a> 
-								</div>
-								<div class="col-5 d-flex justify-content-end">                                
+                        <div class="card-body text-center">
+                            {% for author_, post_number in authors.all() %}
+                           	<div class="btn-group mb-1 w-100">
+                                <a class="{% if author_ == author %}active{% endif %}  btn btn-outline-primary btn-sm" href="{{ url_for('user.index.author', lang_code=g.lang_code, username=author_.username) }}">{{ author_.name }} <span class="badge bg-danger">{{ post_number }}</span></a>                                
                                 <a  class="btn btn-outline-primary btn-sm {% if request.endpoint == 'user.index.profile' and user == author_ %} active {% endif %}" href="{{ url_for('user.index.profile', lang_code=g.lang_code, username=author_.username) }}">{{ _('Profile') }}</a>
-                                </div>
                            	</div>
                             {% endfor %}
                         </div>
@@ -132,7 +128,7 @@
                         <div class="card-header">{{ _("Tags") }}</div>
                         <div class="card-body rtl">
                             {% for tag_ in tags.all() %}
-                                <a class="{% if tag_.name == tag %}active{% endif %} mb-1 btn btn-outline-primary btn-sm" href="{{ url_for('user.index.tag', lang_code=g.lang_code, tag=tag_.name) }}">{{ tag_.name }} <b>{{ tag_.posts.filter_by(active=True, lang_code=g.lang_code).count() }}</b></a> 
+                                <a class="{% if tag_.name == tag %}active{% endif %} btn btn-sm btn-outline-primary mb-1"  href="{{ url_for('user.index.tag', lang_code=g.lang_code, tag=tag_.name) }}">{{ tag_.name }} <b>{{ tag_.posts.filter_by(active=True, lang_code=g.lang_code).count() }}</b></a>
                             {% endfor %}
                         </div>
                     </div>

@@ -48,6 +48,7 @@ class User(UserMixin, db.Model):
             extensions=[
                 'pymdownx.emoji',
                 'pymdownx.mark',
+                'pymdownx.keys',
                 'extra', 
                 'codehilite', 
                 'admonition', 
@@ -118,6 +119,7 @@ class Post(db.Model):
             extensions=[
                 'pymdownx.emoji',
                 'pymdownx.mark',
+                'pymdownx.keys',
                 'extra', 
                 'codehilite', 
                 'admonition', 

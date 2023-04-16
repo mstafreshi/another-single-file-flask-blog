@@ -2,6 +2,7 @@ from flask import render_template, redirect, url_for, flash, abort, request, cur
 from flask_login import current_user, login_required
 from flask_babel import _
 from sqlalchemy import desc
+from sqlalchemy.sql import text
 from . import bp
 from ....models import Post, Comment, User, LinkdumpCategory, Tag
 from .forms import CommentForm
@@ -13,7 +14,9 @@ import urllib.parse
 
 @bp.context_processor
 def context_processor():
-    authors = User.query.join(Post.author).filter(Post.lang_code==g.lang_code)
+    authors = User.query.join(Post.author).filter(Post.lang_code==g.lang_code).\
+        group_by(User.id).add_column(text('count(*) as num_rows'))
+        
     tags = Tag.query.join(Tag.posts).filter_by(lang_code=g.lang_code)
     return dict(LinkdumpCategory=LinkdumpCategory, tags=tags, authors=authors)
                
