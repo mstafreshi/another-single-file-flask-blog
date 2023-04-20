@@ -24,15 +24,17 @@ def post(id):
     form = PostForm()    
     if form.is_submitted():    
         if form.validate():
-            post.title = form.title.data
-            post.slug = form.slug.data
-            post.resume = form.resume.data
-            post.body = form.body.data
+            post.title = form.title.data.strip()
+            post.slug = form.slug.data.strip()
+            post.resume = form.resume.data.strip()
+            post.body = form.body.data.strip()
             post.active = form.active.data
             post.show_in_list = form.show_in_list.data
             post.get_comment = form.get_comment.data        
             post.author = current_user._get_current_object() 
             post.lang_code = form.lang_code.data
+            post.meta_description = form.meta_description.data.strip()
+            post.meta_keywords = form.meta_keywords.data.strip()
             
             post.story_id = None
             if form.story_id.data:

@@ -121,6 +121,8 @@ class Post(db.Model):
     story_id = db.Column(db.Integer, db.ForeignKey('stories.id'), index=True, nullable=True)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
     comments = db.relationship('Comment', backref='post', lazy='dynamic')
+    meta_keywords = db.Column(db.String(500))
+    meta_description = db.Column(db.String(500))
     
     @staticmethod
     def on_changed_body_or_resume(target, value, oldvalue, initiator):

@@ -4,6 +4,7 @@
         <title> {% block title %} {{ config.get('PROJECT_NAME') }} - {{ title }} {% endblock %} </title>
         <meta charset="utf-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block meta %}{% endblock %}
         <link rel="icon" type="image/png" href="{{ url_for('static', filename='icons/favicon.png') }}">
         {%- block styles %}            
             {{ bootstrap.load_css() }}

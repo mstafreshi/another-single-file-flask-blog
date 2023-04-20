@@ -12,3 +12,12 @@
     <link href="{{ url_for('static', filename='css/keys.css') }}" type="text/css" rel="stylesheet" >
     {{ super() }}
 {% endblock %}
+
+{% block meta %}
+    {% if request.endpoint == 'user.index.post' %}
+        <meta name="description" content="{{ post.meta_description }}">
+        <meta name="keywords" content="{{ post.meta_keywords.replace('+', ',') }}">
+    {% else %}
+        {{ super() }}        
+    {% endif %}      
+{% endblock %}
