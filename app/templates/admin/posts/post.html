@@ -11,12 +11,36 @@
         <div class="col-md-3 align-self-end"> {{ render_field(form.show_in_list) }} </div>
         <div class="col-md-12"> {{ render_field(form.slug) }} </div>       
         <div class="col-12 align-self-end"> {{ render_field(form.title) }} </div>
-        <div class="col-12 align-self-end"> {{ render_field(form.tags) }} </div>
+        <div class="col-6 align-self-end"> {{ render_field(form.tags) }} </div>
+        <div class="col-6 align-self-end"> {{ render_field(form.story_id) }} </div>
         <div class="col-12 align-self-end"> {{ render_field(form.resume) }} </div>
         <div class="col-12 align-self-end"> {{ render_field(form.body) }} </div>
         <div class="col-12 align-self-end"> {{ render_field(form.submit) }} </div>
     </div>
    </form>
+   
+   
+   {% set posts = post.story.posts.all() if post.story %}
+        
+   {% if posts %}
+        <div dir="auto">            
+        <h3 class="mt-5"> <a href="{{ url_for('admin.stories.story', id=post.story.id) }}">{{ post.story.name }}</a></h3> <hr>
+        
+        {{ _('In this story') }}:
+        
+            <div class="mt-2">
+            <ol>
+            {% for post_ in posts %}
+                {% if post.id == post_.id %}
+                    <li> {{ post_.title }} ({{ _("This post")}})</li>
+                {% else %}
+                    <li> <a href="{{ url_for('.post', id=post_.id) }}">{{ post_.title }}</a> </li>
+                {% endif %}                           
+            {% endfor %}
+            </ol>
+            </div>
+        </div>
+   {% endif %}
     
 {% endblock %}
 

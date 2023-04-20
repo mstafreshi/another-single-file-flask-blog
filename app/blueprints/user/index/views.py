@@ -19,7 +19,8 @@ def context_processor():
         
     tags = Tag.query.join(Tag.posts).filter_by(lang_code=g.lang_code)
     return dict(LinkdumpCategory=LinkdumpCategory, tags=tags, authors=authors)
-               
+
+@bp.route("/<int:page>", defaults={'lang_code': None})             
 @bp.route("/", defaults={'lang_code': None, 'page':1})
 @bp.route("/<lang_code>", defaults={'page':1})
 @bp.route("/<lang_code>/<int:page>")

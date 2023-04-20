@@ -6,6 +6,23 @@
         
     <div class="row">
         <div class="col-12 markdown-body" dir="auto">
+            {% if post.story %}
+                <div class="admonition attention">
+                    <p class="admonition-title">{{ _("Story") }}: {{ post.story.name }}</p>
+                    <p> {{ _("In this story") }}</p>
+                    <ol>
+                        {% for post_ in post.story.posts.all() if post.story %}
+                            <li>
+                                {% if post_.id == post.id %}
+                                    {{ post_.title }} ({{ _("This post") }})
+                                {% else %}
+                                    <a href="{{ url_for('.post', lang_code=post_.lang_code, slug=post_.slug) }}">{{ post_.title }}</a></li>                           
+                                {% endif %}                                    
+                        {% endfor %}
+                    </ol>
+                </div>                    
+            {% endif %}
+            
             {% if post.body_html %}
                 {{ post.body_html | safe }}
             {% else %}

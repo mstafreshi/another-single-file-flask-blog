@@ -38,6 +38,10 @@
                           <a class="nav-link {% if request.blueprint == 'admin.posts' %} active fw-bold {% endif %}" aria-current="page" href="{{ url_for('admin.posts.list') }}">{{ _('Posts') }}</a>
                         </li>
                         
+                        <li class="nav-item">
+                          <a class="nav-link {% if request.blueprint == 'admin.stories' %} active fw-bold {% endif %}" aria-current="page" href="{{ url_for('admin.stories.list') }}">{{ _('Stories') }}</a>
+                        </li>
+                        
                          <li class="nav-item">
                           <a class="nav-link {% if request.blueprint == 'admin.comments' %} active fw-bold {% endif %}" aria-current="page" href="{{ url_for('admin.comments.list') }}">{{ _('Comments') }}</a>
                         </li>

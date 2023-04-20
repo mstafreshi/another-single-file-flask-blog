@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% from 'bootstrap5/form.html' import render_form %}
+    
+    {{ render_form(form) }}
+    
+    {% if story.posts %}
+        <div dir="auto">
+            <h3 class="mt-5"> {{ _('In this story') }} </h3><hr>
+            
+            <ol>
+            {% for post_ in story.posts %}
+                <li><a href="{{ url_for('admin.posts.post', id=post_.id) }}">{{ post_.title }}</a></li>
+            {% endfor %}
+            </ol>
+        </div>            
+    {% endif %}
+    
+{% endblock %}

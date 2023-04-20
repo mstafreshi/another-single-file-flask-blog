@@ -34,6 +34,10 @@ def post(id):
             post.author = current_user._get_current_object() 
             post.lang_code = form.lang_code.data
             
+            post.story_id = None
+            if form.story_id.data:
+                post.story_id = form.story_id.data
+                
             for post_tag in post.tags.all():
                 post.tags.remove(post_tag)
             
@@ -73,7 +77,7 @@ def post(id):
             
     navigation.append({'text': _('Back to posts'), 'link': url_for('.list') })
  
+    title = post.title if id else _("Add new post") #_("Edit post")
     
-    title = _("Edit post") if id else _("Add new post")
-    data = dict(title=title, form=form, navigation=navigation)
+    data = dict(title=title, form=form, navigation=navigation, post=post)
     return render_template('admin/posts/post.html', **data)

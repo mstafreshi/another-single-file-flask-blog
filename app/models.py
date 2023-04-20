@@ -94,7 +94,15 @@ class Tag(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True,index=True)
     posts = db.relationship('Post', secondary=posts_tags, backref=db.backref('tags', lazy='dynamic'), lazy='dynamic')
-    
+
+class Story(db.Model):
+    __tablename__ = 'stories'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), unique=True)
+    lang_code = db.Column(db.String(2))
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)
+    posts = db.relationship('Post', backref='story', lazy='dynamic')
+        
 class Post(db.Model):
     __tablename__ = "posts"
     id = db.Column(db.Integer, primary_key=True)
@@ -110,6 +118,7 @@ class Post(db.Model):
     get_comment = db.Column(db.Boolean, default=True)
     show_in_list = db.Column(db.Boolean, default=True)
     image = db.Column(db.String(128))
+    story_id = db.Column(db.Integer, db.ForeignKey('stories.id'), index=True, nullable=True)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
     comments = db.relationship('Comment', backref='post', lazy='dynamic')
     
