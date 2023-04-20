@@ -16,7 +16,9 @@
 {% block meta %}
     {% if request.endpoint == 'user.index.post' %}
         <meta name="description" content="{{ post.meta_description }}">
+        {% if post.meta_keywords %}
         <meta name="keywords" content="{{ post.meta_keywords.replace('+', ',') }}">
+        {% endif %}
     {% else %}
         {{ super() }}        
     {% endif %}      
