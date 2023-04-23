@@ -1,6 +1,7 @@
 from flask import current_app
 from flask_login import UserMixin, AnonymousUserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy.dialects.mysql import LONGTEXT
 from . import login_manager
 from . import db
 from datetime import datetime
@@ -111,8 +112,8 @@ class Post(db.Model):
     lang_code = db.Column(db.String(2))
     resume = db.Column(db.Text, nullable=False)
     resume_html = db.Column(db.Text)
-    body = db.Column(db.Text, nullable=False)
-    body_html = db.Column(db.Text)
+    body = db.Column(LONGTEXT, nullable=False)
+    body_html = db.Column(LONGTEXT)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False, index=True)
     active = db.Column(db.Boolean, default = False)
     get_comment = db.Column(db.Boolean, default=True)

@@ -15,6 +15,10 @@ form #body, form #resume {
     min-height: 250px
 }
 
+form #comment {
+    min-height:150px
+}
+
 /*
 #flask-pagedown-body-preview {
     margin-top:5px;
