@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-04-26 16:26+0330\n"
-"PO-Revision-Date: 2023-04-26 16:28+0330\n"
+"POT-Creation-Date: 2023-04-26 21:21+0330\n"
+"PO-Revision-Date: 2023-04-26 21:23+0330\n"
 "Last-Translator: \n"
 "Language-Team: fa <LL@li.org>\n"
 "Language: fa\n"
@@ -199,8 +199,8 @@ msgid "Meta description"
 msgstr "توضیحات متا تگ"
 
 #: app/blueprints/admin/posts/forms.py:22 app/templates/user/index/post.html:11
-msgid "Last edit note"
-msgstr "یادداشت آخرین ویرایش"
+msgid "Author note"
+msgstr "یادداشت نویسنده"
 
 #: app/blueprints/admin/posts/views.py:15
 #: app/blueprints/admin/posts/views.py:83
@@ -562,3 +562,6 @@ msgstr "آخرین کامنت‌ها"
 
 #~ msgid "These posts are in this story"
 #~ msgstr "پست‌های دیگر این قصه به شرح زیر است"
+
+#~ msgid "Last edit note"
+#~ msgstr "یادداشت آخرین ویرایش"

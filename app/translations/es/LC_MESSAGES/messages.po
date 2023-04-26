@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-04-26 16:26+0330\n"
-"PO-Revision-Date: 2023-04-26 16:31+0330\n"
+"POT-Creation-Date: 2023-04-26 21:21+0330\n"
+"PO-Revision-Date: 2023-04-26 21:22+0330\n"
 "Last-Translator: \n"
 "Language-Team: es <LL@li.org>\n"
 "Language: es\n"
@@ -199,8 +199,8 @@ msgid "Meta description"
 msgstr "La descripción para Meta tag"
 
 #: app/blueprints/admin/posts/forms.py:22 app/templates/user/index/post.html:11
-msgid "Last edit note"
-msgstr "La nota para la última versión"
+msgid "Author note"
+msgstr "La nota de autor"
 
 #: app/blueprints/admin/posts/views.py:15
 #: app/blueprints/admin/posts/views.py:83
@@ -554,3 +554,6 @@ msgstr "Los comentarios más recientes"
 
 #~ msgid "These posts are in this story"
 #~ msgstr "Estos posts están en esta historia"
+
+#~ msgid "Last edit note"
+#~ msgstr "La nota para la última versión"
