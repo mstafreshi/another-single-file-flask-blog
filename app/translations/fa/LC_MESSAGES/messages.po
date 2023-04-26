@@ -7,16 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-04-20 11:52+0330\n"
-"PO-Revision-Date: 2023-04-20 11:30+0330\n"
+"POT-Creation-Date: 2023-04-26 16:26+0330\n"
+"PO-Revision-Date: 2023-04-26 16:28+0330\n"
 "Last-Translator: \n"
-"Language: fa\n"
 "Language-Team: fa <LL@li.org>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.12.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: app/__init__.py:13
 msgid "For access to this page, please login."
@@ -31,7 +32,7 @@ msgid "Manage comments of"
 msgstr "مدیریت کامنت‌های"
 
 #: app/blueprints/admin/comments/views.py:18
-#: app/blueprints/admin/posts/views.py:78
+#: app/blueprints/admin/posts/views.py:81
 msgid "Back to posts"
 msgstr "بازگشت به لیست پست‌ها"
 
@@ -66,7 +67,7 @@ msgstr "زبان"
 
 #: app/blueprints/admin/linkdump_categories/forms.py:10
 #: app/blueprints/admin/linkdumps/forms.py:11
-#: app/blueprints/admin/posts/forms.py:20
+#: app/blueprints/admin/posts/forms.py:23
 #: app/blueprints/admin/stories/forms.py:10
 #: app/blueprints/user/index/forms.py:10
 msgid "Submit"
@@ -181,16 +182,28 @@ msgstr "بدنه"
 msgid "Some markdown tags are enabled"
 msgstr "تعداد محدودی تگ markdown فعال است"
 
-#: app/blueprints/admin/posts/forms.py:18 app/templates/base.html:132
+#: app/blueprints/admin/posts/forms.py:18 app/templates/base.html:133
 msgid "Tags"
 msgstr "تگ‌ها"
 
-#: app/blueprints/admin/posts/forms.py:19 app/templates/user/index/post.html:11
+#: app/blueprints/admin/posts/forms.py:19 app/templates/user/index/post.html:18
 msgid "Story"
 msgstr "قصه"
 
+#: app/blueprints/admin/posts/forms.py:20
+msgid "Meta keywords"
+msgstr "کلمات کلیدی متاتگ"
+
+#: app/blueprints/admin/posts/forms.py:21
+msgid "Meta description"
+msgstr "توضیحات متا تگ"
+
+#: app/blueprints/admin/posts/forms.py:22 app/templates/user/index/post.html:11
+msgid "Last edit note"
+msgstr "یادداشت آخرین ویرایش"
+
 #: app/blueprints/admin/posts/views.py:15
-#: app/blueprints/admin/posts/views.py:80
+#: app/blueprints/admin/posts/views.py:83
 msgid "Add new post"
 msgstr "پست جدید"
 
@@ -198,16 +211,16 @@ msgstr "پست جدید"
 msgid "Posts list"
 msgstr "لیست پست‌ها"
 
-#: app/blueprints/admin/posts/views.py:59
+#: app/blueprints/admin/posts/views.py:62
 msgid "Post added/editted successfuly."
 msgstr "پست با موفقیت ثبت/ویرایش شد."
 
-#: app/blueprints/admin/posts/views.py:70
+#: app/blueprints/admin/posts/views.py:73
 msgid "View post"
 msgstr "مشاهده پست"
 
-#: app/blueprints/admin/posts/views.py:74 app/templates/base.html:46
-#: app/templates/user/index/post.html:36
+#: app/blueprints/admin/posts/views.py:77 app/templates/base.html:47
+#: app/templates/user/index/post.html:43
 msgid "Comments"
 msgstr "کامنت‌(ها)"
 
@@ -220,7 +233,7 @@ msgstr "قصه‌ی جدید"
 msgid "Story added successfully"
 msgstr "قصه با موفقیت اضافه شد"
 
-#: app/blueprints/admin/stories/views.py:43 app/templates/base.html:42
+#: app/blueprints/admin/stories/views.py:43 app/templates/base.html:43
 msgid "Stories"
 msgstr "قصه‌ها"
 
@@ -329,7 +342,7 @@ msgid "Remember me"
 msgstr "من را به خاطر بسپار"
 
 #: app/blueprints/user/auth/forms.py:11 app/blueprints/user/auth/views.py:29
-#: app/templates/base.html:62
+#: app/templates/base.html:63
 msgid "Login"
 msgstr "ورود"
 
@@ -338,7 +351,7 @@ msgid "Uername must have only letters, numbers, dots or underscores"
 msgstr "نام کاربری باید فقط شامل حروف و اعداد لاتبن و نقطه و زیر خط باشد"
 
 #: app/blueprints/user/auth/forms.py:21 app/blueprints/user/auth/views.py:62
-#: app/templates/base.html:65
+#: app/templates/base.html:66
 msgid "Register"
 msgstr "ثبت‌نام"
 
@@ -390,7 +403,7 @@ msgstr "لیست پست‌های"
 msgid "Comment saved successfully"
 msgstr "کامنت با موفقیت ثبت شد"
 
-#: app/blueprints/user/index/views.py:103 app/templates/base.html:125
+#: app/blueprints/user/index/views.py:103 app/templates/base.html:126
 msgid "Profile"
 msgstr "پروفایل"
 
@@ -406,27 +419,27 @@ msgstr "پروفایل با موفقیت ذخیره شد"
 msgid "Inactive"
 msgstr "غیر فعال"
 
-#: app/templates/admin/stories/list.html:26 app/templates/base.html:38
+#: app/templates/admin/stories/list.html:26 app/templates/base.html:39
 msgid "Posts"
 msgstr "لیست پست‌ها"
 
-#: app/templates/base.html:50
+#: app/templates/base.html:51
 msgid "Linkdumps"
 msgstr "لینکدونی"
 
-#: app/templates/base.html:54
+#: app/templates/base.html:55
 msgid "Users"
 msgstr "لیست کاربران"
 
-#: app/templates/base.html:58
+#: app/templates/base.html:59
 msgid "Logout"
 msgstr "خروج"
 
-#: app/templates/base.html:120
+#: app/templates/base.html:121
 msgid "Authors"
 msgstr "نویسندگان"
 
-#: app/templates/base.html:153
+#: app/templates/base.html:154
 msgid "All right reserved for"
 msgstr "تمامی حقوق محفوظ است برای"
 
@@ -456,13 +469,13 @@ msgstr "لینک‌ها"
 msgid "comments"
 msgstr "کامنت‌(ها)"
 
-#: app/templates/admin/posts/post.html:29
+#: app/templates/admin/posts/post.html:32
 #: app/templates/admin/stories/story.html:10
-#: app/templates/user/index/post.html:12
+#: app/templates/user/index/post.html:19
 msgid "In this story"
 msgstr "در این قصه"
 
-#: app/templates/admin/posts/post.html:35 app/templates/user/index/post.html:17
+#: app/templates/admin/posts/post.html:38 app/templates/user/index/post.html:24
 msgid "This post"
 msgstr "همین پست"
 
@@ -502,11 +515,11 @@ msgstr "تگ‌"
 msgid "Continue reading this post"
 msgstr "ادامه مطلب"
 
-#: app/templates/user/index/post.html:58
+#: app/templates/user/index/post.html:65
 msgid "Response"
 msgstr "پاسخ"
 
-#: app/templates/user/index/post.html:74
+#: app/templates/user/index/post.html:81
 msgid "Leave a comment"
 msgstr "نظری بنویسید"
 
@@ -549,4 +562,3 @@ msgstr "آخرین کامنت‌ها"
 
 #~ msgid "These posts are in this story"
 #~ msgstr "پست‌های دیگر این قصه به شرح زیر است"
-

@@ -7,16 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-04-20 11:52+0330\n"
-"PO-Revision-Date: 2023-04-20 11:32+0330\n"
+"POT-Creation-Date: 2023-04-26 16:26+0330\n"
+"PO-Revision-Date: 2023-04-26 16:31+0330\n"
 "Last-Translator: \n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.12.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: app/__init__.py:13
 msgid "For access to this page, please login."
@@ -31,7 +32,7 @@ msgid "Manage comments of"
 msgstr "Gestión de los comentarios de"
 
 #: app/blueprints/admin/comments/views.py:18
-#: app/blueprints/admin/posts/views.py:78
+#: app/blueprints/admin/posts/views.py:81
 msgid "Back to posts"
 msgstr "Volver a lista de entradas"
 
@@ -66,7 +67,7 @@ msgstr "Lenguaje"
 
 #: app/blueprints/admin/linkdump_categories/forms.py:10
 #: app/blueprints/admin/linkdumps/forms.py:11
-#: app/blueprints/admin/posts/forms.py:20
+#: app/blueprints/admin/posts/forms.py:23
 #: app/blueprints/admin/stories/forms.py:10
 #: app/blueprints/user/index/forms.py:10
 msgid "Submit"
@@ -181,16 +182,28 @@ msgstr "Cuerpo"
 msgid "Some markdown tags are enabled"
 msgstr "Unos markdown tags son aceptados"
 
-#: app/blueprints/admin/posts/forms.py:18 app/templates/base.html:132
+#: app/blueprints/admin/posts/forms.py:18 app/templates/base.html:133
 msgid "Tags"
 msgstr "Tags"
 
-#: app/blueprints/admin/posts/forms.py:19 app/templates/user/index/post.html:11
+#: app/blueprints/admin/posts/forms.py:19 app/templates/user/index/post.html:18
 msgid "Story"
 msgstr "Historia"
 
+#: app/blueprints/admin/posts/forms.py:20
+msgid "Meta keywords"
+msgstr "Palabras clave para Meta tag"
+
+#: app/blueprints/admin/posts/forms.py:21
+msgid "Meta description"
+msgstr "La descripción para Meta tag"
+
+#: app/blueprints/admin/posts/forms.py:22 app/templates/user/index/post.html:11
+msgid "Last edit note"
+msgstr "La nota para la última versión"
+
 #: app/blueprints/admin/posts/views.py:15
-#: app/blueprints/admin/posts/views.py:80
+#: app/blueprints/admin/posts/views.py:83
 msgid "Add new post"
 msgstr "Nueva entrada"
 
@@ -198,16 +211,16 @@ msgstr "Nueva entrada"
 msgid "Posts list"
 msgstr "Lista de entradas"
 
-#: app/blueprints/admin/posts/views.py:59
+#: app/blueprints/admin/posts/views.py:62
 msgid "Post added/editted successfuly."
 msgstr "La entrada  fue añadida/editada."
 
-#: app/blueprints/admin/posts/views.py:70
+#: app/blueprints/admin/posts/views.py:73
 msgid "View post"
 msgstr "Ver la entrada"
 
-#: app/blueprints/admin/posts/views.py:74 app/templates/base.html:46
-#: app/templates/user/index/post.html:36
+#: app/blueprints/admin/posts/views.py:77 app/templates/base.html:47
+#: app/templates/user/index/post.html:43
 msgid "Comments"
 msgstr "Comentarios"
 
@@ -220,7 +233,7 @@ msgstr "Añadir una historia"
 msgid "Story added successfully"
 msgstr "La historia fue añadida"
 
-#: app/blueprints/admin/stories/views.py:43 app/templates/base.html:42
+#: app/blueprints/admin/stories/views.py:43 app/templates/base.html:43
 msgid "Stories"
 msgstr "Historias"
 
@@ -329,18 +342,17 @@ msgid "Remember me"
 msgstr "Acuérdate de mí"
 
 #: app/blueprints/user/auth/forms.py:11 app/blueprints/user/auth/views.py:29
-#: app/templates/base.html:62
+#: app/templates/base.html:63
 msgid "Login"
 msgstr "Entrar"
 
 #: app/blueprints/user/auth/forms.py:17
 msgid "Uername must have only letters, numbers, dots or underscores"
 msgstr ""
-"El nombre de usuario solo debe tener letras, nombres, puntos y guiones "
-"bajos"
+"El nombre de usuario solo debe tener letras, nombres, puntos y guiones bajos"
 
 #: app/blueprints/user/auth/forms.py:21 app/blueprints/user/auth/views.py:62
-#: app/templates/base.html:65
+#: app/templates/base.html:66
 msgid "Register"
 msgstr "Registrar"
 
@@ -392,7 +404,7 @@ msgstr "Las entradas de"
 msgid "Comment saved successfully"
 msgstr "El comentario fue registrado"
 
-#: app/blueprints/user/index/views.py:103 app/templates/base.html:125
+#: app/blueprints/user/index/views.py:103 app/templates/base.html:126
 msgid "Profile"
 msgstr "Perfil"
 
@@ -408,27 +420,27 @@ msgstr "El perfil fue actualizado"
 msgid "Inactive"
 msgstr "Inactivo"
 
-#: app/templates/admin/stories/list.html:26 app/templates/base.html:38
+#: app/templates/admin/stories/list.html:26 app/templates/base.html:39
 msgid "Posts"
 msgstr "Las entradas"
 
-#: app/templates/base.html:50
+#: app/templates/base.html:51
 msgid "Linkdumps"
 msgstr "Linkdumps"
 
-#: app/templates/base.html:54
+#: app/templates/base.html:55
 msgid "Users"
 msgstr "Lista de usuarios"
 
-#: app/templates/base.html:58
+#: app/templates/base.html:59
 msgid "Logout"
 msgstr "Salir"
 
-#: app/templates/base.html:120
+#: app/templates/base.html:121
 msgid "Authors"
 msgstr "Autores"
 
-#: app/templates/base.html:153
+#: app/templates/base.html:154
 msgid "All right reserved for"
 msgstr "Los derechos son preservados para"
 
@@ -458,13 +470,13 @@ msgstr "Enlaces"
 msgid "comments"
 msgstr "comentarios"
 
-#: app/templates/admin/posts/post.html:29
+#: app/templates/admin/posts/post.html:32
 #: app/templates/admin/stories/story.html:10
-#: app/templates/user/index/post.html:12
+#: app/templates/user/index/post.html:19
 msgid "In this story"
 msgstr "En esta historia"
 
-#: app/templates/admin/posts/post.html:35 app/templates/user/index/post.html:17
+#: app/templates/admin/posts/post.html:38 app/templates/user/index/post.html:24
 msgid "This post"
 msgstr "Este post"
 
@@ -504,11 +516,11 @@ msgstr "Tag"
 msgid "Continue reading this post"
 msgstr "Continuar leyendo la entrada"
 
-#: app/templates/user/index/post.html:58
+#: app/templates/user/index/post.html:65
 msgid "Response"
 msgstr "Respuestra"
 
-#: app/templates/user/index/post.html:74
+#: app/templates/user/index/post.html:81
 msgid "Leave a comment"
 msgstr "Dejar un comentario"
 
@@ -542,4 +554,3 @@ msgstr "Los comentarios más recientes"
 
 #~ msgid "These posts are in this story"
 #~ msgstr "Estos posts están en esta historia"
-

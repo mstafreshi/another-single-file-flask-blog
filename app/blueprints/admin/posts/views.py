@@ -35,6 +35,7 @@ def post(id):
             post.lang_code = form.lang_code.data
             post.meta_description = form.meta_description.data.strip()
             post.meta_keywords = form.meta_keywords.data.strip()
+            post.last_edit_note = form.last_edit_note.data.strip()
             
             post.story_id = None
             if form.story_id.data:

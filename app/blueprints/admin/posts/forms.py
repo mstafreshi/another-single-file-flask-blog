@@ -18,7 +18,8 @@ class PostForm(FlaskForm):
     tags = StringField(_l("Tags"))
     story_id = SelectField(_l("Story"), coerce=int)
     meta_keywords = TextAreaField(_l("Meta keywords"))
-    meta_description = TextAreaField(_l("Meta description"))    
+    meta_description = TextAreaField(_l("Meta description"))
+    last_edit_note = StringField(_l("Last edit note"))  
     submit = SubmitField(_l("Submit"))
 
     def __init__(self, *args, **kwargs):
