@@ -133,6 +133,8 @@ class Post(db.Model):
                 'pymdownx.emoji',
                 'pymdownx.mark',
                 'pymdownx.keys',
+                'pymdownx.tilde',
+                'pymdownx.caret',
                 'extra', 
                 'codehilite', 
                 'admonition', 
