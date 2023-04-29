@@ -26,3 +26,8 @@ footer {
   border-left: .0em solid silver;
   border-right: .25em solid #d0d7de;
 }
+
+.markdown-body code {
+    unicode-bidi: plaintext;
+    direction:ltr
+}
