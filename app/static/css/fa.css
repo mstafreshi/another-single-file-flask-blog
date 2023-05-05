@@ -6,6 +6,10 @@ a {
     text-decoration:none
 }
 
+.markdown-body a:hover {
+    text-decoration:none
+}
+
 .card-header {
     direction: rtl;
 }

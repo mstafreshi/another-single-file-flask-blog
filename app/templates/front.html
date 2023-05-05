@@ -23,3 +23,9 @@
         {{ super() }}        
     {% endif %}      
 {% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    
+    {% include 'user/utilities/stat.html' ignore missing %}
+{% endblock %}

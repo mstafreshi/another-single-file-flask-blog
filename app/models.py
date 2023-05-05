@@ -6,6 +6,7 @@ from . import login_manager
 from . import db
 from datetime import datetime
 from markdown import markdown
+from markdown.extensions.toc import TocExtension
 from hashlib import md5
 
 class AnonymousUser(AnonymousUserMixin):
@@ -138,7 +139,7 @@ class Post(db.Model):
                 'extra', 
                 'codehilite', 
                 'admonition', 
-                'toc'
+                TocExtension(permalink="&#128279;"),
             ]
         )
         
