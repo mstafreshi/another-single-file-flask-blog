@@ -40,7 +40,7 @@ def tag(lang_code, tag, page):
     tag = urllib.parse.unquote(tag)
     tag_object = Tag.query.filter_by(name=tag).first_or_404()
     pagination = tag_object.posts.filter_by(lang_code=g.lang_code, \
-        show_in_list=True,active=True)\
+        active=True)\
         .order_by(Post.id.desc()).paginate(page=page, per_page=10, error_out=False)                          
     posts = pagination.items
     print(posts)
