@@ -1,5 +1,9 @@
 {% extends "front.html" %}
 
+{% block canonical_tag %}
+<link rel="canonical" href="{{ request.url_root }}{{ g.lang_code }}/post/{{ post.slug }}" />
+{% endblock %}
+
 {% block content %}
 <div>
     {% include('user/_index_post_common_header.html') %}

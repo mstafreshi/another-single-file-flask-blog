@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block canonical_tag %}
+<link rel="canonical" href="{{ request.url_root }}{{ g.lang_code }}/profile/{{ user.username }}" />
+{% endblock %}
+
 {% block content %}
 
     <div class="row profile">

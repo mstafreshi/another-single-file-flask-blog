@@ -1,5 +1,16 @@
 {% extends "front.html" %}
 
+{% block canonical_tag %}
+    {% if tag %}
+        <link rel="canonical" href="{{ request.url_root }}{{ g.lang_code }}/tag/{{ tag }}" />
+    {% elif author %}
+        <link rel="canonical" href="{{ request.url_root }}{{ g.lang_code }}/author/{{ author.username }}" />
+    {% else %}
+        <link rel="canonical" href="{{ request.url_root }}" />
+    {% endif %}
+
+{% endblock %}
+
 {% block content %}
     {% if tag or author %}
         <div class="alert alert-primary h3" dir=auto> 
