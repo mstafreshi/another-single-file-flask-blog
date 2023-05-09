@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-04-26 21:21+0330\n"
-"PO-Revision-Date: 2023-04-26 21:22+0330\n"
+"POT-Creation-Date: 2023-05-09 21:26+0330\n"
+"PO-Revision-Date: 2023-05-09 21:28+0330\n"
 "Last-Translator: \n"
 "Language-Team: es <LL@li.org>\n"
 "Language: es\n"
@@ -66,6 +66,11 @@ msgid "Language"
 msgstr "Lenguaje"
 
 #: app/blueprints/admin/linkdump_categories/forms.py:10
+#: app/templates/admin/linkdump_categories/list.html:28
+msgid "Integrated with template"
+msgstr "Integrado con el template"
+
+#: app/blueprints/admin/linkdump_categories/forms.py:11
 #: app/blueprints/admin/linkdumps/forms.py:11
 #: app/blueprints/admin/posts/forms.py:23
 #: app/blueprints/admin/stories/forms.py:10
@@ -78,33 +83,33 @@ msgid "Add category"
 msgstr "Añadir categoria"
 
 #: app/blueprints/admin/linkdump_categories/views.py:15
-#: app/blueprints/admin/linkdump_categories/views.py:43
+#: app/blueprints/admin/linkdump_categories/views.py:44
 #: app/blueprints/admin/linkdumps/views.py:25
 msgid "Categories list"
 msgstr "Lista de  categorias"
 
-#: app/blueprints/admin/linkdump_categories/views.py:31
+#: app/blueprints/admin/linkdump_categories/views.py:32
 msgid "Category added successfully."
 msgstr "La categoria fue añadida."
 
-#: app/blueprints/admin/linkdump_categories/views.py:39
+#: app/blueprints/admin/linkdump_categories/views.py:40
 msgid "Category links"
 msgstr "Los enlaces de la categoria"
 
-#: app/blueprints/admin/linkdump_categories/views.py:49
+#: app/blueprints/admin/linkdump_categories/views.py:50
 msgid "Add new category"
 msgstr "Añadir una nueva categoria"
 
-#: app/blueprints/admin/linkdump_categories/views.py:49
+#: app/blueprints/admin/linkdump_categories/views.py:50
 #: app/blueprints/admin/linkdumps/views.py:21
 msgid "Edit category"
 msgstr "Editar categoria"
 
-#: app/blueprints/admin/linkdump_categories/views.py:57
+#: app/blueprints/admin/linkdump_categories/views.py:58
 msgid "Category have links. Can not be deleted."
 msgstr "La categoria tiene unos enlaces. No se puede eliminar."
 
-#: app/blueprints/admin/linkdump_categories/views.py:62
+#: app/blueprints/admin/linkdump_categories/views.py:63
 msgid "Category deleted successfully."
 msgstr "La categoria fue eliminado."
 
@@ -182,11 +187,11 @@ msgstr "Cuerpo"
 msgid "Some markdown tags are enabled"
 msgstr "Unos markdown tags son aceptados"
 
-#: app/blueprints/admin/posts/forms.py:18 app/templates/base.html:133
+#: app/blueprints/admin/posts/forms.py:18 app/templates/base.html:146
 msgid "Tags"
 msgstr "Tags"
 
-#: app/blueprints/admin/posts/forms.py:19 app/templates/user/index/post.html:18
+#: app/blueprints/admin/posts/forms.py:19 app/templates/user/index/post.html:22
 msgid "Story"
 msgstr "Historia"
 
@@ -198,7 +203,7 @@ msgstr "Palabras clave para Meta tag"
 msgid "Meta description"
 msgstr "La descripción para Meta tag"
 
-#: app/blueprints/admin/posts/forms.py:22 app/templates/user/index/post.html:11
+#: app/blueprints/admin/posts/forms.py:22 app/templates/user/index/post.html:15
 msgid "Author note"
 msgstr "La nota de autor"
 
@@ -219,8 +224,8 @@ msgstr "La entrada  fue añadida/editada."
 msgid "View post"
 msgstr "Ver la entrada"
 
-#: app/blueprints/admin/posts/views.py:77 app/templates/base.html:47
-#: app/templates/user/index/post.html:43
+#: app/blueprints/admin/posts/views.py:77 app/templates/base.html:49
+#: app/templates/user/index/post.html:47
 msgid "Comments"
 msgstr "Comentarios"
 
@@ -233,7 +238,7 @@ msgstr "Añadir una historia"
 msgid "Story added successfully"
 msgstr "La historia fue añadida"
 
-#: app/blueprints/admin/stories/views.py:43 app/templates/base.html:43
+#: app/blueprints/admin/stories/views.py:43 app/templates/base.html:45
 msgid "Stories"
 msgstr "Historias"
 
@@ -342,7 +347,7 @@ msgid "Remember me"
 msgstr "Acuérdate de mí"
 
 #: app/blueprints/user/auth/forms.py:11 app/blueprints/user/auth/views.py:29
-#: app/templates/base.html:63
+#: app/templates/base.html:65
 msgid "Login"
 msgstr "Entrar"
 
@@ -352,7 +357,7 @@ msgstr ""
 "El nombre de usuario solo debe tener letras, nombres, puntos y guiones bajos"
 
 #: app/blueprints/user/auth/forms.py:21 app/blueprints/user/auth/views.py:62
-#: app/templates/base.html:66
+#: app/templates/base.html:68
 msgid "Register"
 msgstr "Registrar"
 
@@ -396,7 +401,7 @@ msgstr "comentario"
 msgid "Home"
 msgstr "Inicio"
 
-#: app/blueprints/user/index/views.py:57 app/templates/user/index/index.html:9
+#: app/blueprints/user/index/views.py:57 app/templates/user/index/index.html:20
 msgid "Posts of"
 msgstr "Las entradas de"
 
@@ -404,7 +409,7 @@ msgstr "Las entradas de"
 msgid "Comment saved successfully"
 msgstr "El comentario fue registrado"
 
-#: app/blueprints/user/index/views.py:103 app/templates/base.html:126
+#: app/blueprints/user/index/views.py:103 app/templates/base.html:128
 msgid "Profile"
 msgstr "Perfil"
 
@@ -420,27 +425,27 @@ msgstr "El perfil fue actualizado"
 msgid "Inactive"
 msgstr "Inactivo"
 
-#: app/templates/admin/stories/list.html:26 app/templates/base.html:39
+#: app/templates/admin/stories/list.html:26 app/templates/base.html:41
 msgid "Posts"
 msgstr "Las entradas"
 
-#: app/templates/base.html:51
+#: app/templates/base.html:53
 msgid "Linkdumps"
 msgstr "Linkdumps"
 
-#: app/templates/base.html:55
+#: app/templates/base.html:57
 msgid "Users"
 msgstr "Lista de usuarios"
 
-#: app/templates/base.html:59
+#: app/templates/base.html:61
 msgid "Logout"
 msgstr "Salir"
 
-#: app/templates/base.html:121
+#: app/templates/base.html:123
 msgid "Authors"
 msgstr "Autores"
 
-#: app/templates/base.html:154
+#: app/templates/base.html:168
 msgid "All right reserved for"
 msgstr "Los derechos son preservados para"
 
@@ -451,7 +456,7 @@ msgid "No records"
 msgstr "No hay récords"
 
 #: app/templates/admin/comments/list.html:21
-#: app/templates/admin/linkdump_categories/list.html:31
+#: app/templates/admin/linkdump_categories/list.html:34
 #: app/templates/admin/linkdumps/list.html:23
 #: app/templates/admin/stories/list.html:31
 msgid "Delete"
@@ -466,17 +471,17 @@ msgid "Links"
 msgstr "Enlaces"
 
 #: app/templates/admin/posts/list.html:29
-#: app/templates/user/index/index.html:33
+#: app/templates/user/index/index.html:44
 msgid "comments"
 msgstr "comentarios"
 
 #: app/templates/admin/posts/post.html:32
 #: app/templates/admin/stories/story.html:10
-#: app/templates/user/index/post.html:19
+#: app/templates/user/index/post.html:23
 msgid "In this story"
 msgstr "En esta historia"
 
-#: app/templates/admin/posts/post.html:38 app/templates/user/index/post.html:24
+#: app/templates/admin/posts/post.html:38 app/templates/user/index/post.html:28
 msgid "This post"
 msgstr "Este post"
 
@@ -508,35 +513,35 @@ msgstr "en"
 msgid "Internal server error occurred."
 msgstr "Un error interno ha ocurrido."
 
-#: app/templates/user/index/index.html:7
+#: app/templates/user/index/index.html:18
 msgid "Tag"
 msgstr "Tag"
 
-#: app/templates/user/index/index.html:32
+#: app/templates/user/index/index.html:43
 msgid "Continue reading this post"
 msgstr "Continuar leyendo la entrada"
 
-#: app/templates/user/index/post.html:65
+#: app/templates/user/index/post.html:69
 msgid "Response"
 msgstr "Respuestra"
 
-#: app/templates/user/index/post.html:81
+#: app/templates/user/index/post.html:85
 msgid "Leave a comment"
 msgstr "Dejar un comentario"
 
-#: app/templates/user/index/profile.html:12
+#: app/templates/user/index/profile.html:16
 msgid "Edit profile"
 msgstr "Editar perfil"
 
-#: app/templates/user/index/profile.html:16
+#: app/templates/user/index/profile.html:20
 msgid "Edit profile as Admin"
 msgstr "Editar perfil como Admin"
 
-#: app/templates/user/index/profile.html:51
+#: app/templates/user/index/profile.html:55
 msgid "Latest posts"
 msgstr "Las entradas más recientes"
 
-#: app/templates/user/index/profile.html:61
+#: app/templates/user/index/profile.html:65
 msgid "Latest comments"
 msgstr "Los comentarios más recientes"
 

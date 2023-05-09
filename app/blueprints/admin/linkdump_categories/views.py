@@ -23,6 +23,7 @@ def category(id):
     if form.is_submitted():
         if form.validate():
             category.name = form.name.data
+            category.integrated_with_template = True if form.integrated_with_template.data else False
             category.lang_code = form.lang_code.data
             category.creator = current_user._get_current_object()
             

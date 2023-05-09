@@ -173,6 +173,7 @@ class LinkdumpCategory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128))
     lang_code = db.Column(db.String(2))
+    integrated_with_template = db.Column(db.Boolean, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     links = db.relationship('Linkdump', backref='category', lazy='dynamic')
     

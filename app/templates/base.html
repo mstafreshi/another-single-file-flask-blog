@@ -130,8 +130,19 @@
                             {% endfor %}
                         </div>
                     </div>
-                     
-                    <div class="card">
+                    
+                    {% for category in LinkdumpCategory.query.filter_by(integrated_with_template=True, lang_code=g.lang_code).all() %}
+                        <div class="card mb-3">
+                        <div class="card-header">{{ category.name }}</div>
+                        <div class="card-body rtl">
+                            {% for link in category.links  %}
+                                <a class=""  title="{{ link.alt }}" href="{{ link.link }}">{{ link.text }} </a> <br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                    <div class="card mb-3">
                         <div class="card-header">{{ _("Tags") }}</div>
                         <div class="card-body rtl">
                             {% for tag_ in tags.all() %}
@@ -139,6 +150,7 @@
                             {% endfor %}
                         </div>
                     </div>
+                                                           
                 </div>
                 {% endif %}
             </div>                                                            

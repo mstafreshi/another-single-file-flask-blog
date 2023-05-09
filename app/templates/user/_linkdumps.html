@@ -1,4 +1,4 @@
-{% for category in LinkdumpCategory.query.filter_by(lang_code=g.lang_code).all() %}
+{% for category in LinkdumpCategory.query.filter_by(integrated_with_template=False, lang_code=g.lang_code).all() %}
     {% if loop.first %} <div class="row border-top pt-3 rtl"> {% endif %} 
         
     {% if category.links.count() %}        

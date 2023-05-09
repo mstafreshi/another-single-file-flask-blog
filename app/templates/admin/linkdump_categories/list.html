@@ -23,7 +23,10 @@
                             
                             <td>
                                 <span class="badge bg-primary">{{ category.lang_code }}</span>
-                                <span class="badge bg-warning">{{category.links.count() }} {{ _('Links') }}</span>                                        
+                                <span class="badge bg-warning">{{category.links.count() }} {{ _('Links') }}</span>
+                                {% if category.integrated_with_template %}
+                                    <span class="badge bg-danger">{{ _("Integrated with template") }}</span>
+                                {% endif %}                                        
                             </td>
                                                 
                             <td class="text-end">
