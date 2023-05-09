@@ -135,8 +135,16 @@
                         <div class="card mb-3">
                         <div class="card-header">{{ category.name }}</div>
                         <div class="card-body rtl">
+                                                    
                             {% for link in category.links  %}
-                                <a class=""  title="{{ link.alt }}" href="{{ link.link }}">{{ link.text }} </a> <br>
+                                {% if loop.first %}
+                                    <div class="btn-group-vertical">
+                                {% endif %}
+                                <a class="btn btn-outline-primary btn-sm"  title="{{ link.alt }}" href="{{ link.link }}">{{ link.text }} </a>
+                                
+                                {% if loop.last %}
+                                    </div>
+                                {% endif %}
                             {% endfor %}
                         </div>
                     </div>
