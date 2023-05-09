@@ -6,7 +6,12 @@
     {% elif author %}
         <link rel="canonical" href="{{ request.url_root }}{{ g.lang_code }}/author/{{ author.username }}" />
     {% else %}
-        <link rel="canonical" href="{{ request.url_root }}" />
+        {% if g.lang_code != config.get("DEFAULT_LANG_CODE") %}
+            <link rel="canonical" href="{{ request.url_root }}{{ g.lang_code }}" />
+        {% else %}
+            <link rel="canonical" href="{{ request.url_root }}" />
+        {% endif %}
+        
     {% endif %}
 
 {% endblock %}
