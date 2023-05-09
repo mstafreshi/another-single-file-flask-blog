@@ -21,13 +21,14 @@
                     {% endif %}
                 </div>            
             
-                <div  class="col-12 about markdown-body">
+                <div  class="col-12 mt-2 about markdown-body">
                     {% if user.about_html %}
                         {{ user.about_html | safe }}
                     {% else %}
                         {{ user.about or "" }}
                     {% endif %}
-                    
+               </div>
+                     
                     <p class="pt-2">
                     {% if user.instagram %}
                         <a href="https://www.instagram.com/{{ user.instagram }}"><img src="{{ url_for('static', filename="icons/instagram.png") }}" alt="Instagram" width="32" height="32"></a>
@@ -49,7 +50,6 @@
                         <a href="https://www.youtube.com/{{ user.youtube }}"><img src="{{ url_for('static', filename="icons/youtube.png") }}" alt="Youtube" width="32" height="32"></a>
                     {% endif %}
                     </p>
-                </div>
                 
                 <div class="col-md-6 mt-3">
                     <h5 class="border-bottom pb-2"> {{ _("Latest posts") }}</h5>
