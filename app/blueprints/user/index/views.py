@@ -24,7 +24,7 @@ def context_processor():
 def robots():
     return send_from_directory("static", "robots.txt")
     
-@bp.route("/sitemap")
+@bp.route("/sitemap.xml")
 def sitemap():
     posts = Post.query.filter_by(active=True).all()
     return render_template("/user/index/sitemap.html", posts=posts)
