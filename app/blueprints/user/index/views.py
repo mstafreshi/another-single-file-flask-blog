@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, flash, abort, request, current_app, g
+from flask import render_template, redirect, url_for, flash, abort, request, current_app, g, send_from_directory
 from flask_login import current_user, login_required
 from flask_babel import _
 from sqlalchemy import desc
@@ -20,6 +20,15 @@ def context_processor():
     tags = Tag.query.join(Tag.posts).filter_by(lang_code=g.lang_code)
     return dict(LinkdumpCategory=LinkdumpCategory, tags=tags, authors=authors)
 
+@bp.route("/robots.txt")
+def robots():
+    return send_from_directory("static", "robots.txt")
+    
+@bp.route("/sitemap")
+def sitemap():
+    posts = Post.query.filter_by(active=True).all()
+    return render_template("/user/index/sitemap.html", posts=posts)
+    
 @bp.route("/<int:page>", defaults={'lang_code': None})             
 @bp.route("/", defaults={'lang_code': None, 'page':1})
 @bp.route("/<lang_code>", defaults={'page':1})

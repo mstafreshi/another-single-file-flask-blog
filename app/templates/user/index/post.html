@@ -1,7 +1,7 @@
 {% extends "front.html" %}
 
 {% block canonical_tag %}
-<link rel="canonical" href="{{ request.url_root }}{{ g.lang_code }}/post/{{ post.slug }}" />
+<link rel="canonical" href="{{ request.url_root }}{{ post.lang_code }}/post/{{ post.slug }}" />
 {% endblock %}
 
 {% block content %}
